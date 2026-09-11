@@ -1,0 +1,50 @@
+---
+layout: base.njk
+permalink: /contact/
+eleventyComputed:
+  seo_title: "{{ pages.contact.seo_title | safe }}"
+  seo_description: "{{ pages.contact.seo_description | safe }}"
+  og_image: "{{ pages.contact.image | safe }}"
+---
+{% import "icons.njk" as ic %}
+{% set p = pages.contact %}
+{% set image = p.image %}{% set crumb = "Contact" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap contact-grid">
+    <div>
+      <form name="quote" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" id="quote">
+        <input type="hidden" name="form-name" value="quote">
+        <p hidden><label>Don't fill this in: <input name="bot-field"></label></p>
+        <div class="row2">
+          <label>Your name<input name="name" required autocomplete="name"></label>
+          <label>Phone<input name="phone" type="tel" required autocomplete="tel"></label>
+        </div>
+        <div class="row2">
+          <label>Postcode<input name="postcode" autocomplete="postal-code" placeholder="{{ p.postcode_placeholder }}"></label>
+          <label>What needs pointing?
+            <select name="type" id="type">{% for t in p.job_types %}<option>{{ t }}</option>{% endfor %}</select>
+          </label>
+        </div>
+        <label>Tell Scott about the job<textarea name="message" placeholder="Age of the house, which walls, any damp or cracking, anything about access."></textarea></label>
+        <label>Photos (optional)<input type="file" name="photos" accept="image/*" multiple></label>
+        <p class="note">{{ p.privacy_note }}</p>
+        <div><button class="btn btn-brick" type="submit">Send to Scott</button></div>
+      </form>
+    </div>
+    <aside class="side">
+      <p class="sub">Call or text Scott</p>
+      <a class="phone" href="{{ site.phone | tel }}">{{ site.phone }}</a>
+      <dl>{% for h in site.hours %}<dt>{{ h.days }}</dt><dd>{{ h.times }}</dd>{% endfor %}</dl>
+      <hr>
+      <p class="sub" style="margin:0"><strong style="color:#fff">{{ site.business_name }}</strong><br>{{ site.owner }}<br>{{ site.town }}, {{ site.region }}{% if site.email %}<br><a href="mailto:{{ site.email }}" style="color:#fff">{{ site.email }}</a>{% endif %}</p>
+      <hr>
+      <p class="sub" style="margin:0;font-size:14px">{{ p.side_note }}</p>
+    </aside>
+  </div>
+</section>
+{% block scripts %}
+<script>
+(function(){var s=new URLSearchParams(location.search).get('service');var sel=document.getElementById('type');if(s&&sel){for(var i=0;i<sel.options.length;i++){if(sel.options[i].text.toLowerCase().indexOf(s.toLowerCase().split(' ')[0])===0){sel.selectedIndex=i;break}}}})();
+</script>
+{% endblock %}

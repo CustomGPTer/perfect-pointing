@@ -1,0 +1,15 @@
+---
+layout: base.njk
+permalink: /thanks/
+seo_title: Message sent | Perfect Pointing
+eleventyComputed:
+  seo_description: "{{ pages.contact.seo_description | safe }}"
+---
+{% set p = pages.contact %}
+{% set image = p.image %}{% set crumb = "Contact" %}{% set heading = p.thanks_heading %}{% set intro = p.thanks_text %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap">
+    <div class="actions" style="margin-top:0"><a class="btn btn-brick" href="{{ site.phone | tel }}">Call {{ site.phone }}</a><a class="btn btn-ghost" href="/">Back to the home page</a></div>
+  </div>
+</section>

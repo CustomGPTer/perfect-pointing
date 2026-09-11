@@ -1,0 +1,5 @@
+<div class="review">
+  <div class="stars" aria-label="{{ r.data.rating or 5 }} out of 5 stars">{% for i in range(0, r.data.rating or 5) %}★{% endfor %}</div>
+  <p>"{{ r.templateContent | striptags | trim }}"</p>
+  <div class="who"><span class="av">{{ r.data.name | initials }}</span><div><strong>{{ r.data.name }}</strong><small>{{ r.data.job }}</small></div></div>
+</div>

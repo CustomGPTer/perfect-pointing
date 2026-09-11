@@ -1,0 +1,48 @@
+---
+layout: base.njk
+permalink: /about/
+eleventyComputed:
+  seo_title: "{{ pages.about.seo_title | safe }}"
+  seo_description: "{{ pages.about.seo_description | safe }}"
+  og_image: "{{ pages.about.image | safe }}"
+---
+{% set p = pages.about %}
+{% set image = p.image %}{% set crumb = "About" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap split">
+    <div class="photo tall"><img src="{{ p.portrait }}" alt="{{ site.owner }}, {{ site.business_name }}" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">{{ p.eyebrow }}</p>
+      <h2>{{ p.bio_heading }}</h2>
+      <div class="prose" style="margin-top:16px">{{ p.bio | md | safe }}</div>
+      <dl class="kv">
+        <dt>Phone</dt><dd><a href="{{ site.phone | tel }}" style="text-decoration:none">{{ site.phone }}</a></dd>
+        {% for d in p.details %}<dt>{{ d.label }}</dt><dd>{{ d.value }}</dd>{% endfor %}
+      </dl>
+    </div>
+  </div>
+</section>
+<section class="grey">
+  <div class="wrap split">
+    <div><p class="eyebrow">Scott and the team</p><h2>{{ p.team_heading }}</h2><div class="prose" style="margin-top:14px">{{ p.team_text | md | safe }}</div></div>
+    <div class="photo wide"><img src="/images/uploads/after.jpg" alt="Freshly repointed brick wall" loading="lazy"></div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">{{ p.areas_eyebrow }}</p>
+        <h2>{{ p.areas_heading }}</h2>
+        <p class="sub" style="margin-top:14px">{{ p.areas_text }}</p>
+        <div class="areas">{% for a in collections.areas | byOrder %}<a href="{{ a.url }}" style="text-decoration:none"><span>{{ a.data.town }}</span></a>{% endfor %}</div>
+        <div class="actions"><a class="btn btn-ghost" href="/areas/">Map of areas we cover</a></div>
+      </div>
+      <div class="photo wide"><img src="{{ p.areas_image }}" alt="Terraced housing in the Rochdale area" loading="lazy"></div>
+    </div>
+    {% if p.stats %}<div class="stat-row">{% for s in p.stats %}<div class="stat"><strong>{{ s.number }}</strong><span>{{ s.label }}</span></div>{% endfor %}</div>{% endif %}
+  </div>
+</section>
+{% set eyebrow = "" %}{% set heading = p.cta_heading %}{% set text = p.cta_text %}{% set button = "Send a message" %}
+{% include "cta.njk" %}

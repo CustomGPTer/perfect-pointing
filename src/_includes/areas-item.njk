@@ -1,0 +1,68 @@
+---
+layout: base.njk
+---
+{% import "icons.njk" as ic %}
+{% set crumb %}<a href="/areas/">Areas</a> / {{ town }}{% endset %}
+{% set image = pages.areas.image %}{% set heading = "Repointing in " + town %}{% if distance == "Home base" %}{% set intro = "Brick, stone and lime pointing, chimneys, garden walls and patios in " + town + " — our home town since 2000. Free written quotes, fixed prices, 10-year guarantee." %}{% else %}{% set intro = "Brick, stone and lime pointing, chimneys, garden walls and patios in " + town + ", " + distance + " from our base in Rochdale. Established 2000. Free written quotes, fixed prices, 10-year guarantee." %}{% endif %}{% set extra = "" %}
+{% include "phero.njk" %}
+
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">{{ town }} · {{ housing | truncate(60) }}</p>
+      <h2>Pointing and repointing in {{ town }}</h2>
+      <div class="prose" style="margin-top:14px">{{ content | safe }}</div>
+      <ul class="checks">
+        <li>{{ ic.tick() }}<span><strong>Scott quotes every job in person</strong> — fixed written price within 48 hours.</span></li>
+        <li>{{ ic.tick() }}<span><strong>{{ site.guarantee }}</strong> on all work in {{ town }}.</span></li>
+        <li>{{ ic.tick() }}<span><strong>{{ site.insurance }}</strong>, certificate shown with the quote.</span></li>
+      </ul>
+      <div class="actions"><a class="btn btn-brick" href="/contact/">Get a free quote in {{ town }}</a><a class="btn btn-ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a></div>
+    </div>
+    <div>
+      {% set map_id = "map-" + page.fileSlug %}{% set map_zoom = 12 %}
+      {% set map_markers = [{ name: town, lat: lat, lng: lng, url: page.url, home: (page.fileSlug == 'rochdale') }] %}
+      {% include "map.njk" %}
+      <p class="note" style="margin-top:10px">{{ town }} — {{ distance }}{% if distance != 'Home base' %} from our base in Rochdale{% endif %}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">Services in {{ town }}</p>
+    <h2>What we do in {{ town }}</h2>
+    <div class="cards">
+      {% for s in collections.services | byOrder %}
+      <a class="card" href="{{ s.url }}"><img class="ph" src="{{ s.data.card_image or s.data.image }}" alt="{{ s.data.title }} in {{ town }}" loading="lazy"><div class="body"><h3>{{ s.data.title }} in {{ town }}</h3><p>{{ s.data.card_text }}</p><span class="link">More about {{ s.data.title | lower }} →</span></div></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set local = collections.jobs | jobsIn(town) %}{% set localrev = collections.reviews | reviewsIn(town) %}
+{% if local.length or localrev.length %}
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Recent work</p>
+      <h2>Jobs in {{ town }}</h2>
+      {% if local.length %}<div class="gallery" style="grid-template-columns:1fr 1fr;margin-top:24px">{% for j in local %}<a class="job" href="/work/#{{ j.fileSlug }}"><img class="bg" src="{{ j.data.image }}" alt="{{ j.data.title }}, {{ j.data.location }}" loading="lazy"><span class="chip">{{ j.data.category }}</span><span class="cap"><strong>{{ j.data.title }}</strong><span>{{ j.data.location }}{% if j.data.duration %} · {{ j.data.duration }}{% endif %}</span></span></a>{% endfor %}</div>{% else %}<p class="sub" style="margin-top:14px">Ask Scott for photos of recent work near you.</p>{% endif %}
+    </div>
+    <div>
+      {% if localrev.length %}<p class="eyebrow">Reviews</p><h2>Customers in {{ town }}</h2><div style="margin-top:24px">{% for r in localrev %}{% include "review-card.njk" %}{% endfor %}</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">Nearby</p>
+    <h2>Other areas we cover</h2>
+    <div class="acards">{% for a in collections.areas | byOrder %}{% if a.url != page.url %}{% include "area-card.njk" %}{% endif %}{% endfor %}</div>
+  </div>
+</section>
+
+{% set eyebrow = "" %}{% set heading = "Get a free repointing quote in " + town %}{% set text = "Ring Scott, or send two or three photos of the wall for a rough figure before he visits." %}{% set button = "Send photos" %}
+{% include "cta.njk" %}

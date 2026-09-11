@@ -1,0 +1,23 @@
+---
+layout: base.njk
+permalink: /advice/
+eleventyComputed:
+  seo_title: "{{ pages.advice.seo_title | safe }}"
+  seo_description: "{{ pages.advice.seo_description | safe }}"
+  og_image: "{{ pages.advice.image | safe }}"
+---
+{% set p = pages.advice %}
+{% set image = p.image %}{% set crumb = "Advice" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap">
+    <div class="cards" style="margin-top:0">{% for a in collections.advice | byOrder %}<a class="card" href="{{ a.url }}"><img class="ph" src="{{ a.data.image }}" alt="" loading="lazy"><div class="body"><h3>{{ a.data.title }}</h3><p>{{ a.data.summary }}</p><span class="link">Read →</span></div></a>{% endfor %}</div>
+  </div>
+</section>
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">Quick answers</p>
+    <h2>Common questions</h2>
+    <div class="faq" style="margin-top:20px">{% for f in collections.faqs | byOrder %}<details><summary>{{ f.data.question }}</summary><div class="prose" style="padding-bottom:20px">{{ f.templateContent | safe }}</div></details>{% endfor %}</div>
+  </div>
+</section>

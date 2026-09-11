@@ -1,0 +1,22 @@
+---
+layout: base.njk
+permalink: /areas/
+eleventyComputed:
+  seo_title: "{{ pages.areas.seo_title | safe }}"
+  seo_description: "{{ pages.areas.seo_description | safe }}"
+  og_image: "{{ pages.areas.image | safe }}"
+---
+{% set p = pages.areas %}
+{% set image = p.image %}{% set crumb = "Areas" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap">
+    {% set map_markers = collections.areas | areaMarkers %}
+    {% set map_id = "areamap" %}{% set map_zoom = 10 %}
+    {% include "map.njk" %}
+    <p class="note" style="margin-top:10px">{{ p.map_note }}</p>
+    <div class="acards" style="margin-top:40px">{% for a in collections.areas | byOrder %}{% include "area-card.njk" %}{% endfor %}</div>
+  </div>
+</section>
+{% set eyebrow = "" %}{% set heading = p.cta_heading %}{% set text = p.cta_text %}{% set button = "Request a quote" %}
+{% include "cta.njk" %}

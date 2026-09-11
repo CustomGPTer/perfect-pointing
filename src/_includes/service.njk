@@ -1,0 +1,44 @@
+---
+layout: base.njk
+---
+{% import "icons.njk" as ic %}
+{% set svcnav %}<div class="svc-nav">{% for s in collections.services | byOrder %}<a href="{{ s.url }}" {% if s.url == page.url %}class="on"{% endif %}>{{ s.data.title }}</a>{% endfor %}</div>{% endset %}
+{% set crumb %}<a href="/services/">Services</a> / {{ title }}{% endset %}
+{% set heading = title %}{% set intro = card_text %}{% set extra = svcnav %}
+{% include "phero.njk" %}
+
+<section>
+  <div class="wrap split">
+    <div class="photo wide"><img src="{{ image }}" alt="{{ title }} — Perfect Pointing, Rochdale" loading="lazy"></div>
+    <div>
+      {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+      <h2>{{ title }} in Rochdale, Oldham, Bury and Greater Manchester</h2>
+      <div class="prose" style="margin-top:14px">{{ content | safe }}</div>
+      <dl class="kv">{% if suits %}<dt>Suits</dt><dd>{{ suits }}</dd>{% endif %}{% if time %}<dt>Typical time</dt><dd>{{ time }}</dd>{% endif %}{% if price %}<dt>Guide price</dt><dd>{{ price }}</dd>{% endif %}<dt>Guarantee</dt><dd>{{ site.guarantee }}</dd></dl>
+      <div class="actions"><a class="btn btn-brick" href="/contact/?service={{ title | urlencode }}">Get a free quote</a><a class="btn btn-ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a></div>
+    </div>
+  </div>
+</section>
+
+{% set related = collections.jobs | relatedJobs(title) %}
+{% if related.length %}
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">Recent {{ title | lower }} jobs</p>
+    <h2>Work like yours</h2>
+    <div class="gallery">
+      {% for j in related %}{% if loop.index <= 3 %}<a class="job" href="/work/#{{ j.fileSlug }}"><img class="bg" src="{{ j.data.image }}" alt="{{ j.data.title }}, {{ j.data.location }}" loading="lazy"><span class="chip">{{ j.data.category }}</span><span class="cap"><strong>{{ j.data.title }}</strong><span>{{ j.data.location }} · {{ j.data.duration }}</span></span></a>{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Where we do it</p>
+    <h2>{{ title }} across Greater Manchester</h2>
+    <div class="areas">{% for a in collections.areas | byOrder %}<a href="{{ a.url }}" style="text-decoration:none"><span>{{ title }} in {{ a.data.town }}</span></a>{% endfor %}</div>
+  </div>
+</section>
+{% set heading = "Get a fixed price for " + (title | lower) %}{% set text = "Free survey, written quote within 48 hours, " + (site.guarantee | lower) + "." %}{% set button = "Request a quote" %}{% set eyebrow = "" %}
+{% include "cta.njk" %}

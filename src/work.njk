@@ -1,0 +1,52 @@
+---
+layout: base.njk
+permalink: /work/
+eleventyComputed:
+  seo_title: "{{ pages.work.seo_title | safe }}"
+  seo_description: "{{ pages.work.seo_description | safe }}"
+  og_image: "{{ pages.work.image | safe }}"
+---
+{% set p = pages.work %}
+{% set image = p.image %}{% set crumb = "Our work" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+{% set cats = [] %}{% for j in collections.jobs %}{% if j.data.category and j.data.category not in cats %}{% set cats = cats.concat([j.data.category]) %}{% endif %}{% endfor %}
+<section>
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filter jobs" style="margin-top:0">
+      <button class="on" data-f="all">All</button>{% for c in cats | sort %}<button data-f="{{ c | slug }}">{{ c }}</button>{% endfor %}
+    </div>
+    <div class="gallery" id="gallery">
+      {% for j in collections.jobs | byOrder %}
+      <button class="job" id="{{ j.fileSlug }}" data-cat="{{ j.data.category | slug }}" data-img="{{ j.data.image }}" data-title="{{ j.data.title }}" data-where="{{ j.data.location }}" data-days="{{ j.data.duration }}" data-mortar="{{ j.data.mortar }}" data-text="{{ j.templateContent | striptags | trim }}"><img class="bg" src="{{ j.data.image }}" alt="{{ j.data.title }} — {{ j.data.category | lower }} repointing in {{ j.data.location }}" loading="lazy"><span class="chip">{{ j.data.category }}</span><span class="cap"><strong>{{ j.data.title }}</strong><span>{{ j.data.location }}{% if j.data.duration %} · {{ j.data.duration }}{% endif %}</span></span></button>
+      {% endfor %}
+    </div>
+    {% if p.note %}<p class="note" style="margin-top:22px">{{ p.note }}</p>{% endif %}
+  </div>
+</section>
+{% set eyebrow = "" %}{% set heading = p.cta_heading %}{% set text = p.cta_text %}{% set button = "Request a quote" %}
+{% include "cta.njk" %}
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="box">
+    <button class="x" id="m-close" aria-label="Close">×</button>
+    <div class="mimg" id="m-img"></div>
+    <div class="mbody">
+      <h3 id="m-title"></h3>
+      <p id="m-text"></p>
+      <dl><dt>Where</dt><dd id="m-where"></dd><dt>Duration</dt><dd id="m-days"></dd><dt>Mortar &amp; finish</dt><dd id="m-mortar"></dd></dl>
+      <div class="actions"><a class="btn btn-brick" href="/contact/">Quote a job like this</a></div>
+    </div>
+  </div>
+</div>
+{% block scripts %}
+<script>
+(function(){
+  var modal=document.getElementById('modal');function close(){modal.classList.remove('open')}
+  document.querySelectorAll('.filters button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.filters button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var f=b.getAttribute('data-f');document.querySelectorAll('.job').forEach(function(j){j.classList.toggle('hide',f!=='all'&&j.getAttribute('data-cat')!==f)})})});
+  function open(j){document.getElementById('m-img').style.backgroundImage="url('"+j.getAttribute('data-img')+"')";['title','text','where','days','mortar'].forEach(function(k){document.getElementById('m-'+k).textContent=j.getAttribute('data-'+k)||''});modal.classList.add('open');document.getElementById('m-close').focus()}
+  document.querySelectorAll('.job').forEach(function(j){j.addEventListener('click',function(){open(j)})});
+  document.getElementById('m-close').addEventListener('click',close);modal.addEventListener('click',function(e){if(e.target===modal)close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t&&t.classList.contains('job'))open(t)}
+})();
+</script>
+{% endblock %}

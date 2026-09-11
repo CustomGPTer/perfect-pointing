@@ -1,0 +1,8 @@
+<div class="phero" style="background-image:url('{{ image }}')">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Home</a> / {{ crumb | safe }}</div>
+    <h1>{{ heading }}</h1>
+    {% if intro %}<p class="lead">{{ intro }}</p>{% endif %}
+    {{ extra | safe }}
+  </div>
+</div>

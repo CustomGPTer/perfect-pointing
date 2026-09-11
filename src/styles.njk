@@ -1,0 +1,19 @@
+---
+layout: base.njk
+permalink: /pointing-styles/
+eleventyComputed:
+  seo_title: "{{ pages.styles.seo_title | safe }}"
+  seo_description: "{{ pages.styles.seo_description | safe }}"
+  og_image: "{{ pages.styles.image | safe }}"
+---
+{% import "icons.njk" as ic %}
+{% set p = pages.styles %}
+{% set image = p.image %}{% set crumb = "Pointing styles" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap">
+    <div class="joints" style="margin-top:0">{% for st in collections.styles | byOrder %}<a class="joint" href="{{ st.url }}">{{ ic.joint(st.data.shape) }}<h4>{{ st.data.name }}</h4><p>{{ st.data.summary }}</p><span class="link" style="font-size:14px;margin-top:10px">Read more →</span></a>{% endfor %}</div>
+  </div>
+</section>
+{% set eyebrow = "" %}{% set heading = "We match what's on your house" %}{% set text = "Unless you'd rather change it. Send a close-up photo of a joint and Scott will tell you what it is." %}{% set button = "Send a photo" %}
+{% include "cta.njk" %}

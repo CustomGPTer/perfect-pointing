@@ -1,0 +1,14 @@
+{% import "icons.njk" as ic %}
+<section class="cta">
+  <div class="wrap">
+    <div>
+      {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+      <h2>{{ heading }}</h2>
+      {% if text %}<p class="sub" style="margin-top:14px">{{ text }}</p>{% endif %}
+    </div>
+    <div>
+      <a class="phone" href="{{ site.phone | tel }}">{{ site.phone }}</a>
+      <div class="actions" style="margin-top:22px"><a class="btn btn-white" href="/contact/">{{ button or "Request a free quote" }}</a></div>
+    </div>
+  </div>
+</section>

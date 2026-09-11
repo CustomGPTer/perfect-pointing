@@ -1,0 +1,103 @@
+{% import "icons.njk" as ic %}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ seo_title or (title + " | " + site.business_name) }}</title>
+<meta name="description" content="{{ seo_description or site.footer_blurb }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ seo_title or title }}">
+<meta property="og:description" content="{{ seo_description or site.footer_blurb }}">
+<meta property="og:image" content="{{ site.url }}{{ og_image or home.hero_image }}">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1B1916">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect width='26' height='26' rx='5' fill='%23B0402A'/%3E%3Cg fill='%23fff'%3E%3Crect x='3' y='4' width='9' height='5' rx='1'/%3E%3Crect x='14' y='4' width='9' height='5' rx='1'/%3E%3Crect x='3' y='10.5' width='4' height='5' rx='1'/%3E%3Crect x='9' y='10.5' width='9' height='5' rx='1'/%3E%3Crect x='20' y='10.5' width='3' height='5' rx='1'/%3E%3Crect x='3' y='17' width='9' height='5' rx='1'/%3E%3Crect x='14' y='17' width='9' height='5' rx='1'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>:root{--hero:url("{{ home.hero_image }}");--cta:url("{{ home.cta_image }}")}</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"LocalBusiness","@id":"{{ site.url }}/#business",
+  "name":"{{ site.business_name }}","url":"{{ site.url }}","telephone":"+44{{ site.phone | replace(' ','') | replace('0','',1) }}",
+  "image":"{{ site.url }}{{ home.hero_image }}","description":"{{ site.footer_blurb }}",
+  "address":{"@type":"PostalAddress","addressLocality":"{{ site.town }}","addressRegion":"{{ site.region }}","addressCountry":"GB"},
+  "areaServed":[{% for a in collections.areas | byOrder %}{"@type":"City","name":"{{ a.data.town }}","url":"{{ site.url }}{{ a.url }}"}{% if not loop.last %},{% endif %}{% endfor %}],
+  "founder":{"@type":"Person","name":"{{ site.owner }}"},
+  "foundingDate":"{{ site.established }}",
+  "geo":{"@type":"GeoCoordinates","latitude":{{ site.lat }},"longitude":{{ site.lng }}},
+  "openingHoursSpecification":[{% for h in site.hours %}{% if h.times != 'Closed' %}{"@type":"OpeningHoursSpecification","dayOfWeek":{% if h.days == 'Mon–Fri' %}["Monday","Tuesday","Wednesday","Thursday","Friday"]{% else %}"{{ h.days }}"{% endif %},"description":"{{ h.times }}"}{% if not loop.last %},{% endif %}{% endif %}{% endfor %}],
+  "makesOffer":[{% for sv in collections.services | byOrder %}{"@type":"Offer","itemOffered":{"@type":"Service","name":"{{ sv.data.title }}","url":"{{ site.url }}{{ sv.url }}"}}{% if not loop.last %},{% endif %}{% endfor %}],
+  "priceRange":"££"{% if site.google_review_count %},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"{{ site.google_rating }}","reviewCount":"{{ site.google_review_count }}"}{% endif %}
+}
+</script>
+{% if breadcrumbs %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}{% for b in breadcrumbs %},{"@type":"ListItem","position":{{ loop.index + 1 }},"name":"{{ b.name }}","item":"{{ site.url }}{{ b.url }}"}{% endfor %}]}</script>{% endif %}
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="hide-m">{{ ic.tick() }}{{ site.topbar_message }}</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>{% for h in site.hours %}{% if h.times != 'Closed' %}{{ h.days }} {{ h.times | replace('am','') | replace('pm','') | replace(' – ','–') }}{% if not loop.last and site.hours[loop.index].times != 'Closed' %} · {% endif %}{% endif %}{% endfor %}</span>
+    <span>{{ ic.phone() }}<a href="{{ site.phone | tel }}">{{ site.phone }}</a></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="{{ site.business_name }} home">
+      <span class="mark">{{ ic.logo() }}</span>
+      <span><strong>{{ site.business_name }}</strong><small>{{ site.tagline }}</small></span>
+    </a>
+    {% set nav = [["/","Home"],["/services/","Services"],["/areas/","Areas"],["/work/","Our work"],["/advice/","Advice"],["/about/","About"],["/reviews/","Reviews"],["/contact/","Contact"]] %}
+    <nav class="primary" aria-label="Main">
+      {% for n in nav %}<a href="{{ n[0] }}" {% if (n[0] == '/' and page.url == '/') or (n[0] != '/' and page.url.startsWith(n[0])) %}class="active"{% endif %}>{{ n[1] }}</a>{% endfor %}
+    </nav>
+    <a class="hdr-call" href="{{ site.phone | tel }}">{{ ic.phone() }}<span>Call&nbsp;</span>{{ site.phone }}</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+  <nav class="drawer" id="drawer" aria-label="Mobile">
+    {% for n in nav %}<a href="{{ n[0] }}" {% if (n[0] == '/' and page.url == '/') or (n[0] != '/' and page.url.startsWith(n[0])) %}class="active"{% endif %}>{{ n[1] }}</a>{% endfor %}
+    <a class="drawer-call" href="{{ site.phone | tel }}">Call Scott — {{ site.phone }}</a>
+  </nav>
+</header>
+
+<main id="content">
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="/"><span class="mark">{{ ic.logo() }}</span><span><strong>{{ site.business_name }}</strong><small>{{ site.tagline }}</small></span></a>
+        <p style="margin-top:18px;max-width:38ch">{{ site.footer_blurb }}</p>
+        <p><a href="{{ site.phone | tel }}" style="font-weight:800;font-size:22px;color:#fff">{{ site.phone }}</a></p>
+        {% if site.facebook_url or site.google_review_url %}<p class="social">{% if site.facebook_url %}<a href="{{ site.facebook_url }}" rel="noopener" target="_blank">Facebook</a>{% endif %}{% if site.google_review_url %}<a href="{{ site.google_review_url }}" rel="noopener" target="_blank">Google reviews</a>{% endif %}</p>{% endif %}
+      </div>
+      <div><h4>Pages</h4><ul>{% for n in nav %}<li><a href="{{ n[0] }}">{{ n[1] }}</a></li>{% endfor %}</ul></div>
+      <div><h4>Services</h4><ul>{% for s in collections.services | byOrder %}<li><a href="{{ s.url }}">{{ s.data.title }}</a></li>{% endfor %}<li><a href="/pointing-styles/">Pointing styles</a></li><li><a href="/advice/">Advice</a></li></ul></div>
+      <div><h4>Areas we cover</h4><ul class="two-col">{% for a in collections.areas | byOrder %}<li><a href="{{ a.url }}">Repointing {{ a.data.town }}</a></li>{% endfor %}</ul></div>
+    </div>
+    <div class="bottom">
+      <span>© {{ '' | year }} {{ site.business_name }} · {{ site.owner }}</span>
+      <span>Established {{ site.established }} · {{ site.town }}, {{ site.region }}</span>
+    </div>
+  </div>
+</footer>
+
+<a class="mcall" href="{{ site.phone | tel }}">Call Scott — {{ site.phone }}</a>
+
+<script>
+(function(){
+  var d=document.getElementById('drawer'),b=document.getElementById('burger');
+  b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});
+})();
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

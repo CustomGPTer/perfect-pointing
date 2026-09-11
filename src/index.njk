@@ -1,0 +1,126 @@
+---
+layout: base.njk
+permalink: /
+eleventyComputed:
+  seo_title: "{{ home.seo_title | safe }}"
+  seo_description: "{{ home.seo_description | safe }}"
+---
+{% import "icons.njk" as ic %}
+<div class="hero">
+  <div class="wrap">
+    <h1>{{ home.hero_heading }}</h1>
+    <div class="prose lead-wrap" style="margin-top:22px">{{ home.hero_text | md | safe }}</div>
+    <div class="actions">
+      <a class="btn btn-brick" href="{{ site.phone | tel }}">{{ ic.phone() }}Call {{ site.phone }}</a>
+      <a class="btn btn-outline-white" href="/contact/">Request a free quote</a>
+    </div>
+    <div class="badges">{% for b in home.hero_badges %}<span>{{ ic.tick() }}{{ b }}</span>{% endfor %}</div>
+  </div>
+</div>
+
+<div class="trust">
+  <div class="wrap">
+    {% for t in home.trust %}<div><span class="ico">{{ ic.trust(t.icon) }}</span><div><strong>{{ t.title }}</strong><small>{{ t.text }}</small></div></div>{% endfor %}
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">{{ home.services_eyebrow }}</p>
+      <h2>{{ home.services_heading }}</h2>
+      <p class="lead" style="margin-top:14px">{{ home.services_text }}</p>
+    </div>
+    <div class="cards">
+      {% for s in collections.services | byOrder %}
+      <a class="card" href="{{ s.url }}"><img class="ph" src="{{ s.data.card_image or s.data.image }}" alt="{{ s.data.title }} — Perfect Pointing, Rochdale" loading="lazy"><div class="body"><h3>{{ s.data.title }}</h3><p>{{ s.data.card_text }}</p><span class="link">More about {{ s.data.title | lower }} →</span></div></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="grey">
+  <div class="wrap split">
+    <div>
+      <div class="compare" id="compare" style="--x:50%">
+        <div class="img" style="background-image:url('{{ home.compare_before }}')"></div>
+        <div class="img top" style="background-image:url('{{ home.compare_after }}')"></div>
+        <div class="handle"></div>
+        <span class="tag l">{{ home.compare_after_label }}</span><span class="tag r">{{ home.compare_before_label }}</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Drag to compare worn and repointed brickwork">
+      </div>
+      <p class="note" style="margin-top:12px">{{ home.compare_caption }}</p>
+    </div>
+    <div>
+      <p class="eyebrow">{{ home.why_eyebrow }}</p>
+      <h2>{{ home.why_heading }}</h2>
+      <div class="prose" style="margin-top:16px">{{ home.why_text | md | safe }}</div>
+      <ul class="checks">
+        {% for p in home.why_points %}<li>{{ ic.tick() }}<span><strong>{{ p.title }}</strong> — {{ p.text }}</span></li>{% endfor %}
+      </ul>
+      <div class="actions"><a class="btn btn-ghost" href="/about/">How we work</a></div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap split rev">
+    <div class="photo tall"><img src="{{ home.team_image }}" alt="Freshly repointed brickwork by Perfect Pointing" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">{{ home.team_eyebrow }}</p>
+      <h2>{{ home.team_heading }}</h2>
+      <div class="prose" style="margin-top:16px">{{ home.team_text | md | safe }}</div>
+      <dl class="kv"><dt>Established</dt><dd>{{ site.established }}</dd><dt>Quotes</dt><dd>Scott, in person, fixed price</dd><dt>Sign-off</dt><dd>Scott checks every job with you before you pay</dd><dt>Guarantee</dt><dd>{{ site.guarantee }}</dd></dl>
+      <div class="actions"><a class="btn btn-ghost" href="/about/">About Scott and the team</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="grey">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">{{ home.areas_eyebrow }}</p>
+        <h2>{{ home.areas_heading }}</h2>
+        <p class="sub" style="margin-top:14px">{{ home.areas_text }}</p>
+        <div class="areas">{% for a in collections.areas | byOrder %}<a href="{{ a.url }}" style="text-decoration:none"><span>{{ a.data.town }}</span></a>{% endfor %}</div>
+        <div class="actions"><a class="btn btn-ghost" href="/areas/">All areas we cover</a></div>
+      </div>
+      <div>{% set map_markers = collections.areas | areaMarkers %}{% set map_id = "homemap" %}{% set map_zoom = 10 %}{% include "map.njk" %}</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center"><p class="eyebrow">{{ home.steps_eyebrow }}</p><h2>{{ home.steps_heading }}</h2></div>
+    <div class="steps">
+      {% for st in home.steps %}<div class="step"><div class="n">{{ loop.index }}</div><h3>{{ st.title }}</h3><p>{{ st.text }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">{{ home.reviews_eyebrow }}</p>
+      <h2>{{ home.reviews_heading }}</h2>
+      {% if site.google_review_count %}<div class="gbadge"><span class="g"></span>{{ site.google_rating }} <span class="stars">★★★★★</span><span style="color:var(--muted);font-weight:600">· {{ site.google_review_count }} Google reviews</span></div>{% endif %}
+    </div>
+    <div class="reviews">
+      {% set shown = 0 %}
+      {% for r in collections.reviews | byOrder %}{% if r.data.featured and shown < 3 %}{% set shown = shown + 1 %}{% include "review-card.njk" %}{% endif %}{% endfor %}
+    </div>
+    <div class="center" style="margin-top:36px"><a class="btn btn-outline-white" href="/reviews/">Read all reviews</a></div>
+  </div>
+</section>
+
+{% set eyebrow = home.cta_eyebrow %}{% set heading = home.cta_heading %}{% set text = home.cta_text %}{% set button = home.cta_button %}
+{% include "cta.njk" %}
+
+{% block scripts %}
+<script>
+(function(){var c=document.getElementById('compare');if(!c)return;var r=c.querySelector('input');r.addEventListener('input',function(){c.style.setProperty('--x',r.value+'%')});})();
+</script>
+{% endblock %}

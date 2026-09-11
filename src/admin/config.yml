@@ -1,0 +1,441 @@
+# Sveltia CMS configuration — https://github.com/sveltia/sveltia-cms
+# Scott edits at https://<your-domain>/admin/ and signs in with GitHub.
+
+backend:
+  name: github
+  repo: CustomGPTer/perfect-pointing     # <-- change if the repo lives somewhere else
+  branch: main
+  base_url: https://api.netlify.com       # Netlify handles the GitHub sign-in (Site config → Access & security → OAuth)
+  commit_messages:
+    create: "Add {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "Upload {{path}}"
+    deleteMedia: "Delete {{path}}"
+
+site_url: https://www.perfectpointing.co.uk
+display_url: https://www.perfectpointing.co.uk
+logo_url: /images/uploads/hero.jpg
+locale: en-GB
+
+media_folder: src/images/uploads
+public_folder: /images/uploads
+
+# Automatically shrink big phone photos on upload
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+
+editor:
+  preview: false
+
+collections:
+
+  # ------------------------------------------------------------------ Business details
+  - name: settings
+    label: Business details
+    description: Phone number, hours, areas covered, insurance — shown across every page.
+    icon: storefront
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Business details
+        file: src/_data/site.yml
+        fields:
+          - { name: business_name, label: Business name, widget: string }
+          - { name: tagline, label: Tagline (under the name in the header), widget: string }
+          - { name: owner, label: Owner's name, widget: string }
+          - { name: phone, label: Phone number, widget: string, hint: "Shown everywhere and used for tap-to-call. Format: 07707 724033" }
+          - { name: email, label: Email (optional), widget: string, required: false }
+          - { name: established, label: Year established, widget: string }
+          - { name: town, label: Town (base), widget: string }
+          - { name: region, label: Region, widget: string }
+          - { name: lat, label: Base latitude (for the map), widget: number, value_type: float, step: 0.0001 }
+          - { name: lng, label: Base longitude (for the map), widget: number, value_type: float, step: 0.0001 }
+          - { name: radius_miles, label: Working radius in miles (blue circle on the map), widget: number, value_type: int }
+          - { name: topbar_message, label: Top bar message, widget: string, hint: "The strip above the menu on desktop" }
+          - name: hours
+            label: Opening hours
+            widget: list
+            fields:
+              - { name: days, label: Days, widget: string }
+              - { name: times, label: Times, widget: string, hint: "e.g. 7.30am – 6pm, or Closed" }
+          - { name: insurance, label: Insurance line, widget: string }
+          - { name: guarantee, label: Guarantee line, widget: string }
+          - { name: google_rating, label: Google rating, widget: string, hint: "e.g. 5.0 — leave blank to hide the badge", required: false }
+          - { name: google_review_count, label: Number of Google reviews, widget: number, required: false, value_type: int }
+          - { name: google_review_url, label: Google review link, widget: string, required: false, hint: "The 'write a review' link from your Google Business Profile" }
+          - { name: facebook_url, label: Facebook page link, widget: string, required: false }
+          - { name: checkatrade_url, label: Checkatrade link, widget: string, required: false }
+          - { name: footer_blurb, label: Footer description, widget: text }
+          - { name: url, label: Website address, widget: string, hint: "Used for Google. Change once the domain is live." }
+
+  # ------------------------------------------------------------------ Home page
+  - name: home
+    label: Home page
+    icon: home
+    editor: { preview: false }
+    files:
+      - name: home
+        label: Home page
+        file: src/_data/home.yml
+        fields:
+          - { name: hero_image, label: Hero background photo, widget: image }
+          - { name: hero_heading, label: Main headline, widget: string }
+          - { name: hero_text, label: Text under the headline, widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+          - { name: hero_badges, label: Tick-list under the buttons, widget: list, hint: "Short phrases, 3–4 works best" }
+          - name: trust
+            label: Trust strip (four boxes under the hero)
+            widget: list
+            max: 4
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: text, label: Small text, widget: string }
+              - { name: icon, label: Icon, widget: select, options: [shield, plus, house, target, tick] }
+          - { name: services_eyebrow, label: Services — small heading, widget: string }
+          - { name: services_heading, label: Services — heading, widget: string }
+          - { name: services_text, label: Services — text, widget: text }
+          - { name: compare_before, label: Before / after — “before” photo, widget: image }
+          - { name: compare_before_label, label: Before / after — “before” label, widget: string }
+          - { name: compare_after, label: Before / after — “after” photo, widget: image }
+          - { name: compare_after_label, label: Before / after — “after” label, widget: string }
+          - { name: compare_caption, label: Before / after — caption, widget: string }
+          - { name: why_eyebrow, label: Why section — small heading, widget: string }
+          - { name: why_heading, label: Why section — heading, widget: string }
+          - { name: why_text, label: Why section — text, widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+          - name: why_points
+            label: Why section — tick points
+            widget: list
+            fields:
+              - { name: title, label: Bold part, widget: string }
+              - { name: text, label: Rest of the sentence, widget: string }
+          - { name: team_eyebrow, label: Team section — small heading, widget: string }
+          - { name: team_heading, label: Team section — heading, widget: string }
+          - { name: team_text, label: Team section — text, widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+          - { name: team_image, label: Team section — photo, widget: image }
+          - { name: areas_eyebrow, label: Areas section — small heading, widget: string }
+          - { name: areas_heading, label: Areas section — heading, widget: string }
+          - { name: areas_text, label: Areas section — text, widget: text }
+          - { name: steps_eyebrow, label: How it works — small heading, widget: string }
+          - { name: steps_heading, label: How it works — heading, widget: string }
+          - name: steps
+            label: How it works — steps
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: text, label: Text, widget: text }
+          - { name: reviews_eyebrow, label: Reviews — small heading, widget: string }
+          - { name: reviews_heading, label: Reviews — heading, widget: string }
+          - { name: cta_eyebrow, label: Bottom banner — small heading, widget: string }
+          - { name: cta_heading, label: Bottom banner — heading, widget: string }
+          - { name: cta_text, label: Bottom banner — text, widget: text }
+          - { name: cta_button, label: Bottom banner — button text, widget: string }
+          - { name: cta_image, label: Bottom banner — background photo, widget: image }
+          - { name: seo_title, label: Browser / Google title, widget: string }
+          - { name: seo_description, label: Google description, widget: text, hint: "Under 160 characters" }
+
+  # ------------------------------------------------------------------ Other pages
+  - name: pages
+    label: Other pages
+    icon: description
+    editor: { preview: false }
+    files:
+      - name: services_page
+        label: Services page
+        file: src/_data/pages.yml
+        fields:
+          - name: services
+            label: Services page
+            widget: object
+            collapsed: false
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: joints_eyebrow, label: Joint profiles — small heading, widget: string }
+              - { name: joints_heading, label: Joint profiles — heading, widget: string }
+              - { name: joints_text, label: Joint profiles — text, widget: text }
+              - { name: faq_eyebrow, label: Questions — small heading, widget: string }
+              - { name: faq_heading, label: Questions — heading, widget: string }
+              - { name: cta_heading, label: Bottom banner — heading, widget: string }
+              - { name: cta_text, label: Bottom banner — text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: work
+            label: Our work page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: note, label: Note under the gallery, widget: string, required: false }
+              - { name: cta_heading, label: Bottom banner — heading, widget: string }
+              - { name: cta_text, label: Bottom banner — text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: areas
+            label: Areas page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: map_note, label: Note under the map, widget: string }
+              - { name: cta_heading, label: Bottom banner — heading, widget: string }
+              - { name: cta_text, label: Bottom banner — text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: styles
+            label: Pointing styles page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: advice
+            label: Advice page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: about
+            label: About page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: portrait, label: Photo of Scott, widget: image }
+              - { name: eyebrow, label: Small heading above the bio, widget: string }
+              - { name: bio_heading, label: Bio heading, widget: string }
+              - { name: bio, label: Bio, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text] }
+              - { name: team_heading, label: Team — heading, widget: string }
+              - { name: team_text, label: Team — text, widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+              - name: details
+                label: Details list
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: value, label: Value, widget: string }
+              - { name: areas_eyebrow, label: Areas — small heading, widget: string }
+              - { name: areas_heading, label: Areas — heading, widget: string }
+              - { name: areas_text, label: Areas — text, widget: text }
+              - { name: areas_image, label: Areas — photo, widget: image }
+              - name: stats
+                label: Big numbers
+                widget: list
+                required: false
+                fields:
+                  - { name: number, label: Number, widget: string }
+                  - { name: label, label: Label, widget: string }
+              - { name: cta_heading, label: Bottom banner — heading, widget: string }
+              - { name: cta_text, label: Bottom banner — text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: reviews
+            label: Reviews page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: cta_heading, label: Bottom banner — heading, widget: string }
+              - { name: cta_text, label: Bottom banner — text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+          - name: contact
+            label: Contact page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: image, label: Banner photo, widget: image }
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Intro text, widget: text }
+              - { name: postcode_placeholder, label: Postcode box example text, widget: string }
+              - { name: job_types, label: "Options in the What-needs-pointing dropdown", widget: list }
+              - { name: privacy_note, label: Note under the form, widget: string }
+              - { name: side_note, label: Note in the side panel, widget: string }
+              - { name: thanks_heading, label: After sending — heading, widget: string }
+              - { name: thanks_text, label: After sending — text, widget: text }
+              - { name: seo_title, label: Browser / Google title, widget: string }
+              - { name: seo_description, label: Google description, widget: text }
+
+  # ------------------------------------------------------------------ Services
+  - name: services
+    label: Services
+    label_singular: Service
+    description: Each service gets a card on the home page, a section on the Services page and its own page.
+    icon: construction
+    folder: src/services
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{order}}. {{title}}"
+    sortable_fields: [order, title]
+    editor: { preview: false }
+    fields:
+      - { name: title, label: Service name, widget: string }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 10 }
+      - { name: eyebrow, label: "Small heading (e.g. Most popular)", widget: string, required: false }
+      - { name: card_text, label: One-line summary (home page card), widget: text }
+      - { name: image, label: Main photo, widget: image }
+      - { name: card_image, label: Card photo (optional — uses main photo if blank), widget: image, required: false }
+      - { name: suits, label: Suits, widget: string, required: false, hint: "e.g. Post-1920s cavity-wall brick" }
+      - { name: time, label: Typical time, widget: string, required: false }
+      - { name: price, label: Guide price, widget: string, required: false }
+      - { name: seo_description, label: Google description, widget: text, required: false }
+      - { name: body, label: Full description, widget: markdown, buttons: [bold, italic, link, bulleted-list, numbered-list], editor_components: [], modes: [rich_text] }
+
+  # ------------------------------------------------------------------ Jobs
+  - name: jobs
+    label: Our work (jobs)
+    label_singular: Job
+    description: Photos of finished jobs. Add as many as you like — newest at the top by giving it order 1.
+    icon: photo_camera
+    folder: src/jobs
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{location}}"
+    sortable_fields: [order, title, category]
+    editor: { preview: false }
+    view_filters:
+      - { label: Brick, field: category, pattern: Brick }
+      - { label: Lime, field: category, pattern: Lime }
+      - { label: Chimney, field: category, pattern: Chimney }
+      - { label: Stone, field: category, pattern: Stone }
+      - { label: Patio, field: category, pattern: Patio }
+    fields:
+      - { name: title, label: Job title, widget: string, hint: "e.g. Front elevation, 1930s semi" }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 1 }
+      - { name: category, label: Type, widget: select, options: [Brick, Lime, Chimney, Stone, Patio, Repairs] }
+      - { name: image, label: Photo, widget: image }
+      - { name: location, label: Where, widget: string, hint: "Town only — no addresses" }
+      - { name: duration, label: How long it took, widget: string, required: false, hint: "e.g. 4 days" }
+      - { name: mortar, label: Mortar & finish, widget: string, required: false, hint: "e.g. 4:1 sand/cement, weather struck" }
+      - { name: body, label: What was done, widget: text }
+
+  # ------------------------------------------------------------------ Reviews
+  - name: reviews
+    label: Reviews
+    label_singular: Review
+    icon: star
+    folder: src/reviews
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{job}}"
+    sortable_fields: [order, name]
+    editor: { preview: false }
+    fields:
+      - { name: name, label: Customer name, widget: string, hint: "First name and initial, e.g. Joanne M." }
+      - { name: job, label: What was done and where, widget: string, hint: "e.g. Chimney stack, Worsley" }
+      - { name: rating, label: Stars, widget: number, value_type: int, min: 1, max: 5, default: 5 }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 1 }
+      - { name: featured, label: Show on home page (first three ticked are shown), widget: boolean, default: false }
+      - { name: body, label: The review, widget: text }
+
+  # ------------------------------------------------------------------ FAQs
+  - name: faqs
+    label: Questions & answers
+    label_singular: Question
+    icon: help
+    folder: src/faqs
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: question
+    summary: "{{question}}"
+    sortable_fields: [order]
+    editor: { preview: false }
+    fields:
+      - { name: question, label: Question, widget: string }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 10 }
+      - { name: body, label: Answer, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text] }
+
+  # ------------------------------------------------------------------ Areas
+  - name: areas
+    label: Areas we cover
+    label_singular: Area
+    description: One page per town. Each gets a pin on the map and its own Google-friendly page (/repointing-town/).
+    icon: location_on
+    folder: src/areas
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: town
+    summary: "{{order}}. {{town}} ({{distance}})"
+    sortable_fields: [order, town]
+    editor: { preview: false }
+    fields:
+      - { name: town, label: Town, widget: string }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 20 }
+      - { name: distance, label: Distance from base, widget: string, hint: "e.g. 6 miles — or Home base" }
+      - { name: lat, label: Latitude, widget: number, value_type: float, step: 0.0001, hint: "Right-click the town on Google Maps → the first number" }
+      - { name: lng, label: Longitude, widget: number, value_type: float, step: 0.0001, hint: "The second number" }
+      - { name: housing, label: Typical housing (one line), widget: string, hint: "e.g. stone terraces, 1930s semis" }
+      - { name: seo_description, label: Google description, widget: text }
+      - { name: body, label: About working in this town, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text], hint: "Two or three short paragraphs. Mention local streets, housing types and what you tend to do there." }
+
+  # ------------------------------------------------------------------ Pointing styles
+  - name: styles
+    label: Pointing styles
+    label_singular: Pointing style
+    icon: texture
+    folder: src/styles
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{order}}. {{name}}"
+    sortable_fields: [order]
+    editor: { preview: false }
+    fields:
+      - { name: name, label: Style name, widget: string }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 10 }
+      - { name: shape, label: Drawing, widget: select, options: [flush, struck, bucket, recessed, tuck], hint: "Which cross-section drawing to show" }
+      - { name: summary, label: One-line summary, widget: string }
+      - { name: suits, label: Suits, widget: string }
+      - { name: avoid, label: Avoid on, widget: string }
+      - { name: seo_description, label: Google description, widget: text, required: false }
+      - { name: body, label: Full explanation, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text] }
+
+  # ------------------------------------------------------------------ Advice
+  - name: advice
+    label: Advice articles
+    label_singular: Article
+    description: Plain-English articles that pick up Google searches. Add one whenever a customer asks a good question.
+    icon: article
+    folder: src/advice
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{order}}. {{title}}"
+    sortable_fields: [order, title]
+    editor: { preview: false }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 10 }
+      - { name: image, label: Photo, widget: image }
+      - { name: summary, label: One-line summary, widget: string }
+      - { name: seo_description, label: Google description, widget: text, required: false }
+      - { name: body, label: Article, widget: markdown, buttons: [bold, italic, link, heading-two, bulleted-list, numbered-list, quote], editor_components: [image], modes: [rich_text] }

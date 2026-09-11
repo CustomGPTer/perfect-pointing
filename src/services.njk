@@ -1,0 +1,57 @@
+---
+layout: base.njk
+permalink: /services/
+breadcrumbs:
+  - { name: Services, url: /services/ }
+eleventyComputed:
+  seo_title: "{{ pages.services.seo_title | safe }}"
+  seo_description: "{{ pages.services.seo_description | safe }}"
+  og_image: "{{ pages.services.image | safe }}"
+---
+{% import "icons.njk" as ic %}
+{% set p = pages.services %}
+{% set svcnav %}<div class="svc-nav">{% for s in collections.services | byOrder %}<a href="{{ s.url }}">{{ s.data.title }}</a>{% endfor %}</div>{% endset %}
+{% set image = p.image %}{% set crumb = "Services" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = svcnav %}
+{% include "phero.njk" %}
+
+<section style="padding-top:0">
+  <div class="wrap">
+    {% for s in collections.services | byOrder %}
+    <div class="svc-row {% if loop.index is even %}rev{% endif %}" id="{{ s.fileSlug }}">
+      <div class="photo wide"><img src="{{ s.data.image }}" alt="{{ s.data.title }} in Rochdale and Greater Manchester" loading="lazy"></div>
+      <div>
+        {% if s.data.eyebrow %}<p class="eyebrow">{{ s.data.eyebrow }}</p>{% endif %}
+        <h2><a href="{{ s.url }}" style="text-decoration:none">{{ s.data.title }}</a></h2>
+        <div class="prose">{{ s.templateContent | safe }}</div>
+        <dl class="facts">{% if s.data.suits %}<dt>Suits</dt><dd>{{ s.data.suits }}</dd>{% endif %}{% if s.data.time %}<dt>Typical time</dt><dd>{{ s.data.time }}</dd>{% endif %}{% if s.data.price %}<dt>Guide price</dt><dd>{{ s.data.price }}</dd>{% endif %}</dl>
+        <div class="actions"><a class="btn btn-brick" href="/contact/?service={{ s.data.title | urlencode }}">Quote this</a><a class="btn btn-ghost" href="{{ s.url }}">Details</a></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">{{ p.joints_eyebrow }}</p>
+    <h2>{{ p.joints_heading }}</h2>
+    <p class="sub" style="margin-top:14px">{{ p.joints_text }}</p>
+    <div class="joints">
+      {% for st in collections.styles | byOrder %}<a class="joint" href="{{ st.url }}">{{ ic.joint(st.data.shape) }}<h4>{{ st.data.name }}</h4><p>{{ st.data.summary }}</p><span class="link" style="font-size:14px;margin-top:10px">Read more →</span></a>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">{{ p.faq_eyebrow }}</p>
+    <h2>{{ p.faq_heading }}</h2>
+    <div class="faq" style="margin-top:20px">
+      {% for f in collections.faqs | byOrder %}<details><summary>{{ f.data.question }}</summary><div class="prose" style="padding-bottom:20px">{{ f.templateContent | safe }}</div></details>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set eyebrow = "" %}{% set heading = p.cta_heading %}{% set text = p.cta_text %}{% set button = "Send photos" %}
+{% include "cta.njk" %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in collections.faqs | byOrder %}{"@type":"Question","name":{{ f.data.question | jsonify | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.templateContent | excerpt(600) | jsonify | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>{% endblock %}

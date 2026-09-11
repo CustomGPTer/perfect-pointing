@@ -1,0 +1,110 @@
+services:
+  seo_title: Repointing Services — Brick, Lime, Chimney, Stone & Patio | Perfect Pointing
+  seo_description: Brick repointing, lime pointing, chimney repointing, stone pointing, patio pointing and brick repairs across Rochdale, Oldham and Greater Manchester. Guide prices and free quotes.
+  heading: Pointing & repointing services
+  intro: Every type of pointing on every type of property, from stone terraces in Rochdale to 1930s semis in Middleton. Guide prices are typical for a semi in Greater Manchester — Scott confirms a fixed price after seeing the wall.
+  image: /images/uploads/terrace.jpg
+  joints_eyebrow: Pointing styles
+  joints_heading: Finished to match your house
+  joints_text: The joint profile changes how the wall looks and how it sheds water. We match what's already on your house unless you'd rather change it. Tap a style to see where it's used and what it suits.
+  faq_eyebrow: Common questions
+  faq_heading: Before you call
+  cta_heading: Not sure which service you need?
+  cta_text: Send two or three photos of the wall. Scott will tell you what he sees and give a rough figure before he visits.
+work:
+  seo_title: Repointing Work in Rochdale, Oldham & Bury — Photos | Perfect Pointing
+  seo_description: Recent repointing, lime pointing, chimney and patio jobs across Rochdale, Oldham, Bury, Heywood and Greater Manchester by Perfect Pointing.
+  heading: Our work
+  intro: Recent jobs across Rochdale, Oldham, Bury and Greater Manchester. Tap any one for what was done and how long it took.
+  image: /images/uploads/stone.jpg
+  note: Ask Scott for before-and-after photos of work near you.
+  cta_heading: Want yours to look like this?
+  cta_text: Free survey, fixed written price, ten-year guarantee.
+areas:
+  seo_title: Areas We Cover — Repointing in Rochdale, Oldham, Bury, Heywood & More | Perfect Pointing
+  seo_description: Perfect Pointing covers Rochdale, Oldham, Bury, Heywood, Middleton, Littleborough, Milnrow, Shaw, Royton, Whitworth, Ramsbottom, Bolton and north Manchester. Established 2000.
+  heading: Areas we cover
+  intro: Based in Rochdale and working within about 15 miles. The towns below are where most of our work is — if you're between them or a little further out, ask.
+  image: /images/uploads/street.jpg
+  map_note: Blue circle is our usual working radius from Rochdale. Markers are the towns with their own page.
+  cta_heading: Not on the list?
+  cta_text: Ring Scott — most jobs over two days are worth the drive.
+styles:
+  seo_title: Pointing Styles Explained — Flush, Weather Struck, Bucket Handle, Recessed, Tuck | Perfect Pointing
+  seo_description: The five pointing joint profiles explained — flush, weather struck, bucket handle, recessed and tuck pointing — with what each suits and where it's used.
+  heading: Pointing styles explained
+  intro: The shape of the mortar joint changes how a wall looks and how well it sheds rain. Here's each one, where you'll see it, and what it suits.
+  image: /images/uploads/after.jpg
+advice:
+  seo_title: Repointing Advice — Costs, Lime vs Cement, Failed Pointing | Perfect Pointing
+  seo_description: Plain-English advice on repointing from Perfect Pointing — how much it costs, lime or cement, how to tell if your pointing has failed, and chimney repointing explained.
+  heading: Advice
+  intro: Straight answers to the questions we get asked on every survey.
+  image: /images/uploads/worn.jpg
+about:
+  seo_title: About Perfect Pointing — Scott Higginson, Rochdale, est. 2000
+  seo_description: Perfect Pointing was established in 2000 by Scott Higginson in Rochdale. Scott quotes every job personally; his team work to the same standard on every wall.
+  heading: About Perfect Pointing
+  intro: Established 2000. Rochdale based. Scott quotes it, the team build it, Scott signs it off.
+  image: /images/uploads/worn.jpg
+  portrait: /images/uploads/repoint.jpg
+  eyebrow: Scott Higginson · owner
+  bio_heading: The person who quotes your job is the person who checks it
+  bio: |
+    Scott started on the trowel as a bricklayer and set up Perfect Pointing in 2000, after seeing too much repointing done badly — skimmed over old joints, wrong mortar for the age of the house, chimneys done off a ladder in twenty minutes.
+
+    Twenty-five years on he still quotes every job in person and won't recommend repointing a wall that doesn't need it. If a couple of patches and a chimney will sort your damp problem, that's what you'll be quoted for.
+  team_heading: The team
+  team_text: |
+    Scott works with a small team who've been with him for years. Everyone uses the same mixes, the same raking-out depth and the same finishing, and Scott walks every job before the customer is asked to pay. You get the owner's standard whether he's on the wall that day or not.
+  details:
+    - label: Established
+      value: "2000"
+    - label: Insurance
+      value: £5m public liability
+    - label: Guarantee
+      value: 10 years, in writing
+    - label: Payment
+      value: On completion, once Scott has signed the job off with you
+    - label: Waste
+      value: All rubble and old mortar removed
+  areas_eyebrow: Areas covered
+  areas_heading: Based in Rochdale, working across Greater Manchester and East Lancashire
+  areas_text: Rochdale, Oldham, Bury, Heywood, Middleton and the towns around them, out to Bolton and north Manchester. If you're a bit further, ask.
+  areas_image: /images/uploads/street.jpg
+  stats:
+    - number: "2000"
+      label: established
+    - number: 25+
+      label: years pointing houses
+    - number: 100%
+      label: of jobs quoted and signed off by Scott
+  cta_heading: Ring Scott
+  cta_text: Weekdays 7.30am to 6pm, Saturdays till 1pm. On site and can't answer? He'll ring back at the next break.
+reviews:
+  seo_title: Reviews — Perfect Pointing, Rochdale
+  seo_description: Customer reviews for Perfect Pointing — repointing, lime pointing and chimney work across Rochdale, Oldham, Bury and Greater Manchester.
+  heading: Reviews
+  intro: What customers say once the sheets come down.
+  image: /images/uploads/after.jpg
+  cta_heading: Had work done by Scott and the team?
+  cta_text: A Google review is how a local business gets found. It takes a minute and it means a lot.
+contact:
+  seo_title: Free Repointing Quote — Rochdale & Greater Manchester | Perfect Pointing
+  seo_description: Request a free repointing quote from Perfect Pointing, Rochdale. Call or text Scott on 07707 724033, or send photos of the wall.
+  heading: Get a free quote
+  intro: Ring, text, or fill this in. Photos help — Scott can often give a rough price before he visits.
+  image: /images/uploads/terrace.jpg
+  privacy_note: Your details go to Scott only and are used to quote your job. Nothing is shared or sold.
+  side_note: On site and can't answer? Leave a message or text — Scott rings back at the next break.
+  thanks_heading: Sent to Scott
+  thanks_text: He'll ring you within one working day. If it's urgent — water coming in — call now.
+  postcode_placeholder: OL16 …
+  job_types:
+    - Brick — house
+    - Lime — period house
+    - Chimney
+    - Stone
+    - Patio or paving
+    - Garden wall
+    - Not sure — need a look

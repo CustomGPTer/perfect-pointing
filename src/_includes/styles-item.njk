@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+{% import "icons.njk" as ic %}
+{% set crumb %}<a href="/pointing-styles/">Pointing styles</a> / {{ name }}{% endset %}
+{% set image = pages.styles.image %}{% set heading = name + " pointing" %}{% set intro = summary %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap split">
+    <div class="joint big">{{ ic.joint(shape) }}<p class="note">Cross-section: brick above and below, mortar in the middle, face of the wall on the right.</p></div>
+    <div>
+      <p class="eyebrow">Pointing styles</p>
+      <h2>{{ name }}</h2>
+      <div class="prose" style="margin-top:14px">{{ content | safe }}</div>
+      <dl class="kv"><dt>Suits</dt><dd>{{ suits }}</dd><dt>Avoid on</dt><dd>{{ avoid }}</dd></dl>
+      <div class="actions"><a class="btn btn-brick" href="/contact/">Get a free quote</a><a class="btn btn-ghost" href="/services/">Our services</a></div>
+    </div>
+  </div>
+</section>
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">The others</p>
+    <h2>More pointing styles</h2>
+    <div class="joints" style="margin-top:28px">{% for st in collections.styles | byOrder %}{% if st.url != page.url %}<a class="joint" href="{{ st.url }}">{{ ic.joint(st.data.shape) }}<h4>{{ st.data.name }}</h4><p>{{ st.data.summary }}</p></a>{% endif %}{% endfor %}</div>
+  </div>
+</section>
+{% set eyebrow = "" %}{% set heading = "Not sure which finish your house has?" %}{% set text = "Send Scott a photo of a joint up close. He'll tell you what it is and what it should be repointed in." %}{% set button = "Send a photo" %}
+{% include "cta.njk" %}

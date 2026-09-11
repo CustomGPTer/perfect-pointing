@@ -1,0 +1,31 @@
+# Business details — used across every page
+business_name: Perfect Pointing
+tagline: Repointing specialists
+owner: Scott Higginson
+established: 2000
+phone: 07707 724033
+email: ""
+url: https://www.perfectpointing.co.uk
+town: Rochdale
+region: Greater Manchester
+postcode_area: OL
+lat: 53.6097
+lng: -2.1561
+radius_miles: 15
+areas_summary: Based in Rochdale, covering Greater Manchester and East Lancashire
+hours:
+  - days: Mon–Fri
+    times: 7.30am – 6pm
+  - days: Saturday
+    times: 8am – 1pm
+  - days: Sunday
+    times: Closed
+topbar_message: Established 2000 · Free quotes · Fully insured
+insurance: £5m public liability
+guarantee: 10-year written workmanship guarantee
+google_rating: ""
+google_review_count:
+google_review_url: ""
+facebook_url: ""
+checkatrade_url: ""
+footer_blurb: Brick, stone and lime repointing, chimneys and patios across Greater Manchester and East Lancashire. Established 2000, based in Rochdale. Scott Higginson quotes every job personally and his team work to the same standard on every wall.

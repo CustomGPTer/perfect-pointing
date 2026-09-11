@@ -1,0 +1,24 @@
+---
+layout: base.njk
+permalink: /reviews/
+eleventyComputed:
+  seo_title: "{{ pages.reviews.seo_title | safe }}"
+  seo_description: "{{ pages.reviews.seo_description | safe }}"
+  og_image: "{{ pages.reviews.image | safe }}"
+---
+{% set p = pages.reviews %}
+{% set image = p.image %}{% set crumb = "Reviews" %}{% set heading = p.heading %}{% set intro = p.intro %}{% set extra = "" %}
+{% include "phero.njk" %}
+<section>
+  <div class="wrap">
+    <div class="reviews" style="margin-top:0">
+      {% for r in collections.reviews | byOrder %}{% include "review-card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="dark">
+  <div class="wrap split">
+    <div><h2>{{ p.cta_heading }}</h2><p class="sub" style="margin-top:12px">{{ p.cta_text }}</p></div>
+    <div class="actions" style="margin-top:0">{% if site.google_review_url %}<a class="btn btn-white" href="{{ site.google_review_url }}" target="_blank" rel="noopener">Leave a Google review</a>{% else %}<a class="btn btn-white" href="/contact/">Leave a review</a>{% endif %}</div>
+  </div>
+</section>
