@@ -11,14 +11,26 @@ eleventyComputed:
 {% include "phero.njk" %}
 <section>
   <div class="wrap">
+    {% set gRating = google.rating or site.google_rating %}{% set gCount = google.count or site.google_review_count %}
+    {% if gRating and gCount %}<div class="gbadge" style="margin:0 0 28px"><span class="g"></span>{{ gRating }} <span class="stars">★★★★★</span><span style="color:var(--muted);font-weight:600">· {{ gCount }} Google review{% if gCount != 1 %}s{% endif %}</span></div>{% endif %}
+    {% set allReviews = google.reviews | concat(collections.reviews | byOrder) %}
+    {% if allReviews.length %}
     <div class="reviews" style="margin-top:0">
-      {% for r in collections.reviews | byOrder %}{% include "review-card.njk" %}{% endfor %}
+      {% for r in allReviews %}{% include "review-card.njk" %}{% endfor %}
     </div>
+    {% if google.ok and google.mapsUrl %}<p class="note" style="margin-top:20px">Reviews are pulled from our <a href="{{ google.mapsUrl }}" target="_blank" rel="noopener">Google Business Profile</a> and refreshed every week. Google shows a maximum of five on third-party sites — see the profile for the full list.</p>{% endif %}
+    {% else %}
+    <div class="reviews-empty" style="margin-top:0">
+      <p><strong>Our Google profile is new and the first reviews are on their way.</strong> Perfect Pointing has been repointing houses around Rochdale since 2000 on recommendation alone — the reviews will show here automatically as customers leave them.</p>
+      <p>If we've worked on your house, a two-minute review helps the next person find a pointer they can trust.</p>
+      {% if google.reviewUrl %}<a class="btn btn-brick" href="{{ google.reviewUrl }}" target="_blank" rel="noopener">Leave a Google review</a>{% elif google.mapsUrl %}<a class="btn btn-brick" href="{{ google.mapsUrl }}" target="_blank" rel="noopener">Find us on Google</a>{% endif %}
+    </div>
+    {% endif %}
   </div>
 </section>
 <section class="dark">
   <div class="wrap split">
     <div><h2>{{ p.cta_heading }}</h2><p class="sub" style="margin-top:12px">{{ p.cta_text }}</p></div>
-    <div class="actions" style="margin-top:0">{% if site.google_review_url %}<a class="btn btn-white" href="{{ site.google_review_url }}" target="_blank" rel="noopener">Leave a Google review</a>{% else %}<a class="btn btn-white" href="/contact/">Leave a review</a>{% endif %}</div>
+    <div class="actions" style="margin-top:0">{% if google.reviewUrl %}<a class="btn btn-white" href="{{ google.reviewUrl }}" target="_blank" rel="noopener">Leave a Google review</a>{% elif google.mapsUrl %}<a class="btn btn-white" href="{{ google.mapsUrl }}" target="_blank" rel="noopener">Find us on Google</a>{% else %}<a class="btn btn-white" href="/contact/">Leave a review</a>{% endif %}</div>
   </div>
 </section>

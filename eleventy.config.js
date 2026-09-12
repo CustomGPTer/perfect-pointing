@@ -1,5 +1,8 @@
 import markdownIt from "markdown-it";
 import * as yaml from "js-yaml";
+import fs from "node:fs";
+import path from "node:path";
+import { imageSize } from "image-size";
 
 export default function (eleventyConfig) {
   eleventyConfig.addDataExtension("yml,yaml", (contents) => yaml.load(contents));
@@ -9,7 +12,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
-  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
 
   eleventyConfig.addFilter("md", (s) => (s ? md.render(String(s)) : ""));
   eleventyConfig.addFilter("mdInline", (s) => (s ? md.renderInline(String(s)) : ""));
@@ -49,6 +51,28 @@ export default function (eleventyConfig) {
     [...(areas || [])].sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
       .map((a) => ({ name: a.data.town, lat: a.data.lat, lng: a.data.lng, url: a.url, home: a.fileSlug === "rochdale" })));
   eleventyConfig.addFilter("jsonify", (v) => JSON.stringify(v));
+  eleventyConfig.addFilter("concat", (a, b) => [...(a || []), ...(b || [])]);
+
+  // Add width/height to every local <img> that lacks them (stops layout shift).
+  const dimCache = new Map();
+  const dims = (src) => {
+    if (dimCache.has(src)) return dimCache.get(src);
+    let d = null;
+    try { d = imageSize(fs.readFileSync(path.join("src", src))); } catch {}
+    dimCache.set(src, d);
+    return d;
+  };
+  eleventyConfig.addTransform("imgdims", (content, outputPath) => {
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
+    return content.replace(/<img\b[^>]*>/g, (tag) => {
+      if (/\swidth=/.test(tag)) return tag;
+      const m = tag.match(/\ssrc="(\/images\/[^"]+)"/);
+      if (!m) return tag;
+      const d = dims(m[1]);
+      if (!d?.width) return tag;
+      return tag.replace(/<img\b/, `<img width="${d.width}" height="${d.height}"`);
+    });
+  });
   eleventyConfig.addFilter("excerpt", (html, n = 160) => String(html || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, n));
   eleventyConfig.addCollection("faqs", (api) => api.getFilteredByGlob("src/faqs/*.md"));
 

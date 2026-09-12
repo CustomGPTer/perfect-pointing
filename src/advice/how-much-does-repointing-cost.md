@@ -1,5 +1,6 @@
 ---
 title: How much does repointing cost in 2026?
+seo_title_override: Repointing Cost Guide 2026 (UK) | Perfect Pointing
 order: 1
 image: /images/uploads/after.jpg
 summary: Guide prices per square metre for brick, lime and stone, what pushes the price up, and how to compare quotes.

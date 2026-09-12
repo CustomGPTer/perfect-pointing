@@ -4,7 +4,7 @@ export default {
   permalink: (data) => `/advice/${data.page.fileSlug}/`,
   eleventyComputed: {
     breadcrumbs: (d) => [{ name: "Advice", url: "/advice/" }, { name: d.title, url: d.page.url }],
-    seo_title: (d) => `${d.title} | Perfect Pointing`,
+    seo_title: (d) => d.seo_title_override || `${d.title} | Perfect Pointing`,
     og_image: (d) => d.image,
   },
 };

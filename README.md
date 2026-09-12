@@ -34,7 +34,7 @@ This is what lets Scott log in at `/admin/` with a GitHub account instead of an 
 
 1. GitHub → **Settings → Developer settings → OAuth Apps → New OAuth App**
    - Application name: `Perfect Pointing CMS`
-   - Homepage URL: `https://www.perfectpointing.co.uk` (or the netlify.app URL for now)
+   - Homepage URL: `https://perfect-pointing.com` (or the netlify.app URL for now)
    - Authorization callback URL: **`https://api.netlify.com/auth/done`**
    - Register → **Generate a new client secret**. Copy the Client ID and secret.
 2. Netlify → Project configuration → **Access & security → OAuth → Install provider → GitHub** → paste Client ID and secret → Install.
@@ -43,14 +43,14 @@ This is what lets Scott log in at `/admin/` with a GitHub account instead of an 
 5. Test: go to `https://<site>/admin/`, click **Sign in with GitHub**. You'll see the editor.
 
 ### 4. Domain
-1. Buy `perfectpointing.co.uk` (Cloudflare Registrar or Namecheap — cheaper than the host and portable).
+1. Buy `perfect-pointing.com` (Cloudflare Registrar or Namecheap — cheaper than the host and portable).
 2. Netlify → **Domain management → Add a domain** → follow the DNS instructions (two records). SSL is automatic.
-3. Once live, in `/admin/` → Business details → set **Website address** to `https://www.perfectpointing.co.uk`.
+3. Once live, in `/admin/` → Business details → set **Website address** to `https://perfect-pointing.com`.
    Also update `site_url` / `display_url` in `src/admin/config.yml` and the OAuth app's Homepage URL.
 
 ### 5. Google
 - Set up / claim the **Google Business Profile** for Perfect Pointing (free) — this is what puts him on Maps.
-- Google Search Console → add the domain → submit `https://www.perfectpointing.co.uk/sitemap.xml`.
+- Google Search Console → add the domain → submit `https://perfect-pointing.com/sitemap.xml`.
 - Paste the Business Profile "write a review" link into **Business details → Google review link** in `/admin/`.
 
 ---
@@ -118,3 +118,18 @@ Still to do off-site (the part that matters most for local search): claim the **
 All photos are free stock (CC0, no credit needed) and should be swapped for Scott's own via the CMS.
 These figures were written as sensible fillers and need Scott's real ones: guide prices, the six reviews, the job list and locations, insurance level, guarantee length, opening hours, Scott's email for form notifications.
 Once he has a Google Business Profile, fill in **Google rating / review count / review link** in Business details and the badge appears.
+
+## Google reviews (automatic)
+
+The site pulls the rating and the latest reviews from the Google Business Profile at build time and shows them on the home page and `/reviews/`. Google only releases five reviews to third-party sites; the page links to the profile for the rest.
+
+Setup (once):
+
+1. Google Cloud Console → create a project → enable **Places API (New)** → Credentials → create an API key. Restrict the key to the Places API (New). Billing has to be enabled on the project, but the free monthly allowance covers a weekly build many times over.
+2. Netlify → Site configuration → Environment variables → add `GOOGLE_PLACES_API_KEY` = the key.
+3. Netlify → Site configuration → Build & deploy → Build hooks → add one called "Weekly review refresh", copy its URL, and add it as environment variable `NETLIFY_BUILD_HOOK`.
+4. Trigger a deploy. The scheduled function in `netlify/functions/refresh-reviews.mjs` then rebuilds the site every Monday at 06:00 so new reviews appear without anyone touching it.
+
+The profile is found by business name and town. If Google matches the wrong listing, paste the Place ID into `/admin/` → Business details → **Google Place ID** (find it at https://developers.google.com/maps/documentation/places/web-service/place-id).
+
+Until the key is set, or if Google is unreachable during a build, the site still builds and shows a "reviews on their way" panel instead.

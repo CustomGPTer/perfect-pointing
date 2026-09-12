@@ -106,12 +106,21 @@ eleventyComputed:
     <div class="center">
       <p class="eyebrow">{{ home.reviews_eyebrow }}</p>
       <h2>{{ home.reviews_heading }}</h2>
-      {% if site.google_review_count %}<div class="gbadge"><span class="g"></span>{{ site.google_rating }} <span class="stars">★★★★★</span><span style="color:var(--muted);font-weight:600">· {{ site.google_review_count }} Google reviews</span></div>{% endif %}
+      {% set gRating = google.rating or site.google_rating %}{% set gCount = google.count or site.google_review_count %}
+      {% if gRating and gCount %}<div class="gbadge"><span class="g"></span>{{ gRating }} <span class="stars">★★★★★</span><span style="color:var(--muted);font-weight:600">· {{ gCount }} Google review{% if gCount != 1 %}s{% endif %}</span></div>{% endif %}
     </div>
+    {% set allReviews = google.reviews | concat(collections.reviews | byOrder) %}
+    {% if allReviews.length %}
     <div class="reviews">
       {% set shown = 0 %}
-      {% for r in collections.reviews | byOrder %}{% if r.data.featured and shown < 3 %}{% set shown = shown + 1 %}{% include "review-card.njk" %}{% endif %}{% endfor %}
+      {% for r in allReviews %}{% if shown < 3 %}{% set shown = shown + 1 %}{% include "review-card.njk" %}{% endif %}{% endfor %}
     </div>
+    {% else %}
+    <div class="reviews-empty">
+      <p>Perfect Pointing has been repointing houses around Rochdale since 2000, but the Google Business Profile is new — the first reviews are on their way. If Scott and the team have worked on your house, a review takes two minutes and helps the next customer find us.</p>
+      {% if google.reviewUrl %}<a class="btn btn-white" href="{{ google.reviewUrl }}" target="_blank" rel="noopener">Leave a Google review</a>{% elif google.mapsUrl %}<a class="btn btn-white" href="{{ google.mapsUrl }}" target="_blank" rel="noopener">Find us on Google</a>{% endif %}
+    </div>
+    {% endif %}
     <div class="center" style="margin-top:36px"><a class="btn btn-outline-white" href="/reviews/">Read all reviews</a></div>
   </div>
 </section>

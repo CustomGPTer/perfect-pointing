@@ -11,7 +11,7 @@ eleventyComputed:
 {% include "phero.njk" %}
 <section>
   <div class="wrap">
-    <div class="cards" style="margin-top:0">{% for a in collections.advice | byOrder %}<a class="card" href="{{ a.url }}"><img class="ph" src="{{ a.data.image }}" alt="" loading="lazy"><div class="body"><h3>{{ a.data.title }}</h3><p>{{ a.data.summary }}</p><span class="link">Read →</span></div></a>{% endfor %}</div>
+    <div class="cards" style="margin-top:0">{% for a in collections.advice | byOrder %}<a class="card" href="{{ a.url }}"><img class="ph" src="{{ a.data.image }}" alt="{{ a.data.title }}" loading="lazy"><div class="body"><h3>{{ a.data.title }}</h3><p>{{ a.data.summary }}</p><span class="link">Read →</span></div></a>{% endfor %}</div>
   </div>
 </section>
 <section class="grey">

@@ -1,5 +1,6 @@
 ---
 title: Chimney repointing explained
+seo_title_override: Chimney Repointing Explained | Perfect Pointing
 order: 4
 image: /images/uploads/chimney.jpg
 summary: Why the stack goes first, what flaunching is, and what a proper chimney job includes.

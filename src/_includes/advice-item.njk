@@ -13,7 +13,7 @@ layout: base.njk
 <section class="grey">
   <div class="wrap">
     <p class="eyebrow">More advice</p>
-    <div class="cards" style="margin-top:20px">{% for a in collections.advice | byOrder %}{% if a.url != page.url %}<a class="card" href="{{ a.url }}"><img class="ph" src="{{ a.data.image }}" alt="" loading="lazy"><div class="body"><h3>{{ a.data.title }}</h3><p>{{ a.data.summary }}</p><span class="link">Read →</span></div></a>{% endif %}{% endfor %}</div>
+    <div class="cards" style="margin-top:20px">{% for a in collections.advice | byOrder %}{% if a.url != page.url %}<a class="card" href="{{ a.url }}"><img class="ph" src="{{ a.data.image }}" alt="{{ a.data.title }}" loading="lazy"><div class="body"><h3>{{ a.data.title }}</h3><p>{{ a.data.summary }}</p><span class="link">Read →</span></div></a>{% endif %}{% endfor %}</div>
   </div>
 </section>
 {% set eyebrow = "" %}{% set heading = "Got a wall you're not sure about?" %}{% set text = "Send photos. Scott will tell you what he sees and give a rough figure before he visits." %}{% set button = "Send photos" %}

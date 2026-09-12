@@ -1,5 +1,6 @@
 ---
 title: Six signs your pointing has failed
+seo_title_override: 6 Signs Your Pointing Has Failed | Perfect Pointing
 order: 3
 image: /images/uploads/before.jpg
 summary: What to look for from the pavement, and which ones mean water is already getting in.

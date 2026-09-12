@@ -5,6 +5,7 @@ export default {
   eleventyComputed: {
     breadcrumbs: (d) => [{ name: "Pointing styles", url: "/pointing-styles/" }, { name: d.name, url: d.page.url }],
     title: (d) => d.name,
-    seo_title: (d) => `${d.name} pointing — what it is and where it's used | Perfect Pointing`,
+    seo_title: (d) => `${d.name.replace(/ pointing$/i, "")} Pointing Explained | Perfect Pointing`,
+    og_image: (d) => d.pages.styles.image,
   },
 };
