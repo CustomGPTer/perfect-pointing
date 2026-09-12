@@ -226,6 +226,7 @@ collections:
               - { name: heading, label: Heading, widget: string }
               - { name: intro, label: Intro text, widget: text }
               - { name: portrait, label: Photo of Scott, widget: image }
+              - { name: portrait_alt, label: Photo description (alt text), widget: string, required: false, hint: "Describe the photo — e.g. Scott Higginson on site. Clear this once a photo of Scott is uploaded." }
               - { name: eyebrow, label: Small heading above the bio, widget: string }
               - { name: bio_heading, label: Bio heading, widget: string }
               - { name: bio, label: Bio, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text] }

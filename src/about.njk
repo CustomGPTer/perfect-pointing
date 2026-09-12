@@ -11,7 +11,7 @@ eleventyComputed:
 {% include "phero.njk" %}
 <section>
   <div class="wrap split">
-    <div class="photo tall"><img src="{{ p.portrait }}" alt="{{ site.owner }}, {{ site.business_name }}" loading="lazy"></div>
+    <div class="photo tall"><img src="{{ p.portrait }}" alt="{{ p.portrait_alt or (site.owner + ', ' + site.business_name) }}" loading="lazy"></div>
     <div>
       <p class="eyebrow">{{ p.eyebrow }}</p>
       <h2>{{ p.bio_heading }}</h2>
