@@ -2,7 +2,7 @@
 title: Chimney repointing explained
 seo_title_override: Chimney Repointing Explained | Perfect Pointing
 order: 4
-image: /images/uploads/chimney.jpg
+image: /images/uploads/advice-chimney.jpg
 summary: Why the stack goes first, what flaunching is, and what a proper chimney job includes.
 seo_description: Chimney repointing explained — flaunching, pots, lead flashing, access, and why a damp patch upstairs usually starts at the stack.
 ---

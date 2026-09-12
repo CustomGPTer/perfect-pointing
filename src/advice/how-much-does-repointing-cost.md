@@ -2,7 +2,7 @@
 title: How much does repointing cost in 2026?
 seo_title_override: Repointing Cost Guide 2026 (UK) | Perfect Pointing
 order: 1
-image: /images/uploads/after.jpg
+image: /images/uploads/advice-cost.jpg
 summary: Guide prices per square metre for brick, lime and stone, what pushes the price up, and how to compare quotes.
 seo_description: Repointing cost guide for Greater Manchester — price per m² for brick, lime and stone, chimney and gable prices, and what makes a quote cheaper or dearer.
 ---

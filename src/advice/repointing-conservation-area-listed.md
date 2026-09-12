@@ -2,7 +2,7 @@
 title: Repointing in a conservation area or listed building
 seo_title_override: Repointing Listed & Conservation Homes | Perfect Pointing
 order: 9
-image: /images/uploads/stone-pointing.jpg
+image: /images/uploads/advice-conservation.jpg
 summary: What you can do without permission, why lime is usually a condition, and how we handle Saddleworth, Littleborough and the Rochdale conservation areas.
 seo_description: Repointing rules for listed buildings and conservation areas in Rochdale, Oldham and Saddleworth — when consent is needed, why lime mortar is required, and how to get the finish approved.
 ---

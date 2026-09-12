@@ -2,7 +2,7 @@
 title: Will repointing stop damp coming through my wall?
 seo_title_override: Does Repointing Stop Damp? | Perfect Pointing
 order: 8
-image: /images/uploads/brick-repairs.jpg
+image: /images/uploads/advice-damp.jpg
 summary: Usually — if it's penetrating damp and the pointing is the reason. How to tell, and the cases where repointing won't fix it.
 seo_description: Whether repointing stops penetrating damp on external walls and chimney breasts — how to tell pointing from a gutter, flashing or condensation problem, and why sealants make it worse.
 ---

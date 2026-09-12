@@ -2,7 +2,7 @@
 title: The survey says the house needs repointing — what now?
 seo_title_override: Survey Flagged Repointing? What It Means | Perfect Pointing
 order: 10
-image: /images/uploads/compare-before.jpg
+image: /images/uploads/advice-survey.jpg
 summary: What a surveyor's "repointing required" actually means, how much to budget or knock off, and whether to fix it before you sell.
 seo_description: What to do when a homebuyer survey says a house needs repointing — how serious it is, what it costs, how to negotiate the price, and whether sellers should repoint before marketing.
 ---

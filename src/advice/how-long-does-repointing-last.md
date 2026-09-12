@@ -2,7 +2,7 @@
 title: How long does repointing last?
 seo_title_override: How Long Does Repointing Last? | Perfect Pointing
 order: 6
-image: /images/uploads/lime-pointing.jpg
+image: /images/uploads/advice-lifespan.jpg
 summary: Fifty years or more if it's done right. Two or three if it isn't. What decides which one you get.
 seo_description: How long repointing lasts on brick and stone — why properly raked-out lime or cement pointing lasts decades, why cheap patching fails in a few years, and what shortens its life.
 ---

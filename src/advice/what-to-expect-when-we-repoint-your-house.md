@@ -2,7 +2,7 @@
 title: What to expect when we repoint your house
 seo_title_override: What Happens When Your House Is Repointed | Perfect Pointing
 order: 12
-image: /images/uploads/compare-after.jpg
+image: /images/uploads/advice-what-to-expect.jpg
 summary: How long it takes, whether you need scaffolding, how much dust and mess there is, and what to do before we arrive.
 seo_description: What repointing involves for the homeowner — how long a gable or a whole house takes, tower vs scaffold, dust and noise, protecting plants and cars, and what to do before and after the job.
 ---

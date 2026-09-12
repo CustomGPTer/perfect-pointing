@@ -2,7 +2,7 @@
 title: Six signs your pointing has failed
 seo_title_override: 6 Signs Your Pointing Has Failed | Perfect Pointing
 order: 3
-image: /images/uploads/before.jpg
+image: /images/uploads/advice-failed.jpg
 summary: What to look for from the pavement, and which ones mean water is already getting in.
 seo_description: How to tell if your brick or stone pointing has failed — crumbling joints, spalled brick, damp patches, moss, hollow sound — and what to do about it.
 ---

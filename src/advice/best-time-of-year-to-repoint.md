@@ -2,7 +2,7 @@
 title: When is the best time of year to repoint?
 seo_title_override: Best Time of Year for Repointing | Perfect Pointing
 order: 7
-image: /images/uploads/street-repointed.jpg
+image: /images/uploads/advice-season.jpg
 summary: April to October, and not in a heatwave. Why frost and hot sun both ruin new mortar, and how we work round the Pennine weather.
 seo_description: The best time of year to repoint brick or stone — why frost, heatwaves and driving rain damage fresh mortar, why lime needs mild weather, and how a pointer works round the Greater Manchester climate.
 ---

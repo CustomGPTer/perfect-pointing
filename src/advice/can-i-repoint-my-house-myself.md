@@ -2,7 +2,7 @@
 title: Can I repoint my house myself?
 seo_title_override: Can I Repoint My House Myself? | Perfect Pointing
 order: 5
-image: /images/uploads/brick-repointing.jpg
+image: /images/uploads/advice-diy.jpg
 summary: Yes for a garden wall. Probably not for the house — where DIY jobs go wrong and what it costs to put right.
 seo_description: Can you repoint your own brickwork? What a DIY repointing job actually involves, the mistakes that damage the wall, and when it makes sense to do it yourself.
 ---
