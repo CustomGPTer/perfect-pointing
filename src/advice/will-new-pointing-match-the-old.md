@@ -2,7 +2,7 @@
 title: Will the new pointing match the rest of the house?
 seo_title_override: Will New Pointing Match the Old? | Perfect Pointing
 order: 11
-image: /images/uploads/brick-pointed-tall.jpg
+image: /images/uploads/advice-colour-match.jpg
 summary: Yes, if it's matched properly — sand, colour, joint profile and finish. Why some repointing stands out from the road and how we stop that happening.
 seo_description: How to match new mortar to existing pointing — matching sand and colour, copying the joint profile, why new pointing looks lighter at first, and blending a repointed section into the rest of the wall.
 ---

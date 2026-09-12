@@ -2,7 +2,7 @@
 title: Lime or cement — which mortar does my house need?
 seo_title_override: Lime or Cement Mortar for Repointing? | Perfect Pointing
 order: 2
-image: /images/uploads/worn.jpg
+image: /images/uploads/advice-lime-cement.jpg
 summary: The one question that matters most on an older house, and how to tell which you've got.
 seo_description: Lime vs cement mortar for repointing — how to tell what your house was built with, why cement damages old brick and stone, and when cement is the right choice.
 ---
