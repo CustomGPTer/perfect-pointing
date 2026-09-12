@@ -133,3 +133,17 @@ Setup (once):
 The profile is found by business name and town. If Google matches the wrong listing, paste the Place ID into `/admin/` → Business details → **Google Place ID** (find it at https://developers.google.com/maps/documentation/places/web-service/place-id).
 
 Until the key is set, or if Google is unreachable during a build, the site still builds and shows a "reviews on their way" panel instead.
+
+## Areas — two tiers
+
+Every town in `src/areas/` has its own page at `/repointing-<town>/`. The `tier` field decides where it shows:
+
+- **core** — the 13 home-patch towns. Shown in the menu dropdown, footer, home page, About page, service-page chips and the top of `/areas/`.
+- **extended** — every other town within ~30 miles. Own page, listed under "Further afield" on `/areas/` (A–Z by county), in the sitemap and in the LocalBusiness schema. Nowhere else, so the site doesn't clutter.
+
+`src/regions/` holds the six county hub pages (`/areas/lancashire/` etc.) for the 30–50 mile ring. Each lists the towns in its `counties` automatically and names the outer towns (no own page) in `outer_towns` and in the text.
+
+To promote a town to core, change `tier` to `core` in the CMS. To add a town, create it in Areas with tier `extended`, a county, lat/lng, road miles and drive time, and a write-up that is genuinely about that town — Google demotes area pages that are the same paragraph with the name swapped.
+
+Site settings: `free_travel_miles` (15, the solid map circle) and `travel_radius_miles` (50, the dashed circle).
+

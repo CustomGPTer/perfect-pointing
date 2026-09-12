@@ -14,3 +14,5 @@ seo_description: Repointing in Northwich — Victorian brick. Brick, stone and l
 Northwich is Cheshire brick — Victorian terraces in the town, older brick cottages in Hartford, Davenham and Weaverham, some in lime — with the salt subsidence that gave the town its lifted timber-framed buildings still showing in cracked walls. We check for it before quoting.
 
 About an hour and ten minutes from Rochdale via the M60 and M56, so Northwich is whole-elevation and whole-house work only, paired with Knutsford and Warrington.
+
+Salt subsidence is the first thing to check on any older wall in Northwich, Winnington or Castle: a stepped crack through the pointing is not a pointing problem and repointing over it is money wasted, so we say so at the quote and suggest a stitch or a structural look first. Otherwise the work is a full elevation on a Victorian terrace, or a careful lime repoint on the older brick cottages in Hartford and Davenham where a hard mix has started to spall the face.

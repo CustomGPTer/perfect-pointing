@@ -14,3 +14,5 @@ seo_description: Repointing in Wakefield — Wakefield stone and brick. Brick, s
 Wakefield is where the West Riding stone starts to give way to brick — the city centre, Sandal and St John's have older stone in lime; Thornes, Agbrigg, Belle Vue and Eastmoor are Victorian brick terraces; Ossett, Horbury and Netherton to the west are gritstone. We carry both and quote to the wall.
 
 St John's and the city centre are conservation areas. About an hour from Rochdale on the M62, so Wakefield is whole-elevation and whole-house territory and we'll pair it with Dewsbury or Leeds jobs.
+
+The typical brick job is a full front on a Thornes or Agbrigg terrace with spalled bricks replaced and cills re-bedded; the typical stone job is lime work on a Sandal, Horbury or Ossett house where cement has started to blow the faces. Newmillerdam, Walton and the villages south of the city are stone cottages and garden walls, and Heath, on the common, is a conservation area of Georgian stone that needs the joint matched exactly.

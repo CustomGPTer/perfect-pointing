@@ -14,3 +14,5 @@ seo_description: Repointing in Preston — Victorian brick terraces. Brick, ston
 Preston is Victorian brick for the most part — terraces around Deepdale, Plungington, Ashton-on-Ribble and Fishwick, and larger Georgian and Victorian houses in Avenham, Winckley Square and Fishergate Hill, many with painted or rubbed brick and stone dressings. Fulwood, Penwortham and Lea are inter-war and post-war semis.
 
 Avenham, Winckley Square and Fishergate Hill are conservation areas and the older houses there are often in lime. We are about fifty minutes from Rochdale on the M61/M6 and take on whole-elevation and whole-house work in the city; smaller jobs we'll try to pair with something nearby.
+
+The typical brick job is a full front on a Deepdale, Plungington or Ashton terrace with spalled bricks replaced and the chimney done from the same tower. On Avenham and Winckley Square the joints are fine and often lime, the brick is soft and rubbed on the arches, and the finish has to match — we mix to a cleaned sample and use a fine joint. Penwortham, Longton and Hutton have older brick cottages that are lime work as well.

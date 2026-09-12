@@ -14,3 +14,5 @@ seo_description: Repointing in Barnsley — Barnsley stone and brick. Brick, sto
 Barnsley is a coalfield town and the housing is a mix — older gritstone around the town centre, Dodworth and Worsbrough in lime; Victorian brick terraces built for the pits; inter-war and post-war estates. Old workings mean we check for settlement cracks before quoting on the older streets.
 
 About an hour from Rochdale via the M62 and M1. Barnsley is whole-elevation and whole-house territory and we pair it with Penistone and Holmfirth work.
+
+The older stone around Dodworth, Worsbrough, Cawthorne and the town centre is Pennine gritstone in lime and gets the same treatment as our West Yorkshire work: cement raked out by hand, lime with a matched aggregate, brushed back. The Victorian brick terraces of the pit villages — Wombwell, Hoyland, Royston, Cudworth — take cement in a bucket-handle joint, and the inter-war council semis are bays, gables and chimneys. Cawthorne and the town centre have conservation areas.

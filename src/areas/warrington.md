@@ -14,3 +14,5 @@ seo_description: Repointing in Warrington — Victorian brick terraces. Brick, s
 Warrington is brick — Victorian terraces around Latchford, Orford, Howley and Bewsey, bigger Edwardian houses in Stockton Heath and Grappenhall, inter-war and post-war semis everywhere else — and the villages around it, Lymm, Thelwall and Appleton, have older Cheshire brick cottages in lime. Cement for the town, lime for the old cottages.
 
 Lymm village and Stockton Heath have conservation areas. About fifty minutes from Rochdale via the M62; we take on full elevations and whole houses and pair Warrington with St Helens, Leigh and Widnes work.
+
+The typical Warrington job is a full front elevation on a Victorian terrace with a few spalled bricks replaced and the chimney done from the same tower, or a full elevation on an Edwardian house in Stockton Heath where the owner wants the joint colour matched to the original. On the old Cheshire brick in Lymm, Thelwall, Appleton Thorn and Grappenhall village a cement repoint will spall the brick; we use lime or a weak mix and finish it flush.

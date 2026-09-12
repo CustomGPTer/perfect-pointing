@@ -14,3 +14,5 @@ seo_description: Repointing in Glossop — Glossop gritstone terraces. Brick, st
 Glossop, Old Glossop, Hadfield and Padfield are High Peak gritstone — mill terraces in lime, older cottages in Old Glossop that predate the mills, big square houses on the hill — and the weather off Bleaklow and Kinder finds every weak joint. Cement pointing has been put on nearly all of it and the stone is blowing as a result.
 
 Lime, hand-raked and brushed back, is the work. Old Glossop and Hadfield have conservation areas. About forty minutes from Rochdale via Oldham and the A57 or the M67.
+
+The typical job is a gable-and-chimney together on a terrace facing the hill, or a full elevation on one of the big square houses on Talbot Road and Sheffield Road where cement is blowing the stone. Old Glossop's cottages around the Cross and the church are the oldest stone in the town and want the finest lime joint. Hadfield, Padfield, Tintwistle and Charlesworth are the same stone and the same work.

@@ -34,18 +34,18 @@
   "name":"{{ site.business_name }}","url":"{{ site.url }}/","telephone":"+44{{ site.phone | replace(' ','') | replace('0','',1) }}",
   "image":"{{ site.url }}{{ home.hero_image }}","logo":"{{ site.url }}{{ home.hero_image }}","description":"{{ site.footer_blurb }}",
   "address":{"@type":"PostalAddress","addressLocality":"{{ site.town }}","addressRegion":"{{ site.region }}"{% if site.postcode %},"postalCode":"{{ site.postcode }}"{% endif %},"addressCountry":"GB"},
-  "areaServed":[{% for a in collections.areasAll | byOrder %}{"@type":"City","name":"{{ a.data.town }}","url":"{{ site.url }}{{ a.url }}"},{% endfor %}{% for r in collections.regions | byOrder %}{"@type":"AdministrativeArea","name":"{{ r.data.name }}","url":"{{ site.url }}{{ r.url }}"}{% if not loop.last %},{% endif %}{% endfor %}],
+  "areaServed":[{% for a in collections.areasAll | byOrder %}{"@type":"City","name":"{{ a.data.town | safe }}","url":"{{ site.url }}{{ a.url }}"},{% endfor %}{% for r in collections.regions | byOrder %}{"@type":"AdministrativeArea","name":"{{ r.data.name | safe }}","url":"{{ site.url }}{{ r.url }}"}{% if not loop.last %},{% endif %}{% endfor %}],
   "founder":{"@type":"Person","name":"{{ site.owner }}"},
   "foundingDate":"{{ site.established }}",
   "geo":{"@type":"GeoCoordinates","latitude":{{ site.lat }},"longitude":{{ site.lng }}},
   "openingHoursSpecification":[{% for h in hoursSpec %}{"@type":"OpeningHoursSpecification","dayOfWeek":{% if h.days == 'Mon–Fri' %}["Monday","Tuesday","Wednesday","Thursday","Friday"]{% else %}"{{ h.days }}"{% endif %},"description":"{{ h.times }}"}{% if not loop.last %},{% endif %}{% endfor %}],
-  "makesOffer":[{% for sv in collections.services | byOrder %}{"@type":"Offer","itemOffered":{"@type":"Service","name":"{{ sv.data.title }}","url":"{{ site.url }}{{ sv.url }}"}}{% if not loop.last %},{% endif %}{% endfor %}],
+  "makesOffer":[{% for sv in collections.services | byOrder %}{"@type":"Offer","itemOffered":{"@type":"Service","name":"{{ sv.data.title | safe }}","url":"{{ site.url }}{{ sv.url }}"}}{% if not loop.last %},{% endif %}{% endfor %}],
   "sameAs":[{% set same = [] %}{% if google.mapsUrl %}{% set same = (same.push(google.mapsUrl), same) %}{% endif %}{% if site.facebook_url %}{% set same = (same.push(site.facebook_url), same) %}{% endif %}{% if site.checkatrade_url %}{% set same = (same.push(site.checkatrade_url), same) %}{% endif %}{% for u in same %}"{{ u }}"{% if not loop.last %},{% endif %}{% endfor %}],
   "priceRange":"££"{% if ratingValue and ratingCount %},
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"{{ ratingValue }}","reviewCount":"{{ ratingCount }}","bestRating":"5"}{% endif %}
 }
 </script>
-{% if breadcrumbs %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}{% for b in breadcrumbs %},{"@type":"ListItem","position":{{ loop.index + 1 }},"name":"{{ b.name }}","item":"{{ site.url }}{{ b.url }}"}{% endfor %}]}</script>{% endif %}
+{% if breadcrumbs %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}{% for b in breadcrumbs %},{"@type":"ListItem","position":{{ loop.index + 1 }},"name":"{{ b.name | safe }}","item":"{{ site.url }}{{ b.url }}"}{% endfor %}]}</script>{% endif %}
 {% block head %}{% endblock %}
 </head>
 <body>

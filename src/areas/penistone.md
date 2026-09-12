@@ -14,3 +14,5 @@ seo_description: Repointing in Penistone — Penistone gritstone terraces and fa
 Penistone, Thurlstone, Stocksbridge and the villages along the Don are Pennine gritstone in lime — market-town terraces, farmhouses, stone garden walls — and the pointing on them has to be lime. Penistone has a conservation area around the church and market place. Cement repointing has done its usual damage and hand removal is most of the job.
 
 High and exposed; the west elevations carry the weather. About an hour from Rochdale over Holmfirth or via the M62 and M1, so multi-day jobs only, grouped with the Holme Valley.
+
+The typical job is a full elevation on a Shrewsbury Road or Bridge Street terrace, or a farmhouse and its garden walls out towards Ingbirchworth, Millhouse Green or Oxspring, where cement has been put on old gritstone and the faces are coming off. We rake it out by hand, repoint in lime with a matched aggregate and brush it back. Stocksbridge and Deepcar down the valley are the same stone and we group them with Penistone.

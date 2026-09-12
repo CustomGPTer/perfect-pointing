@@ -14,3 +14,5 @@ seo_description: Repointing in Knutsford — Georgian and Victorian Cheshire bri
 Knutsford is a Georgian and Victorian town in Cheshire brick — soft, hand-made, orange-red brick laid in lime on the older buildings around King Street and the town centre, later Victorian brick in cement outside it, and old brick cottages in the villages around. The soft brick needs a lime or a weak mix; a hard cement will spall it.
 
 The town centre is a conservation area. About an hour from Rochdale via the M60 and M56; whole-elevation jobs only, paired with Altrincham and Wilmslow.
+
+On the older King Street and Princess Street buildings the brick is soft and the joints are fine and lime; a cement repoint here spalls the brick within a few winters, and we have taken plenty of it back out. The Victorian villas around Legh Road and the Heath have rubbed-brick arches and decorative work that need a fine, matched joint. Mobberley, Tatton and the villages around are old brick cottages and garden walls in lime.

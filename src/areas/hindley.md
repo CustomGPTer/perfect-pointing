@@ -14,3 +14,5 @@ seo_description: Repointing in Hindley — Victorian terraces. Brick, stone and 
 Hindley, Hindley Green and Platt Bridge are pit-village brick — long terraces from the 1880s and 1890s around Market Street, Atherton Road and Bridge Street, and inter-war semis behind them. Cement work, bucket handle or weather struck, and the old-workings ground that means we check for structural cracks before quoting.
 
 Gables facing west across the flat towards Wigan take the weather and are the usual first failure, with the chimney above them. Most jobs are a front or a gable-and-chimney together. About forty-five minutes from Rochdale on the M62 and M61.
+
+The typical job is a full front on a Market Street or Atherton Road terrace with a few spalled bricks replaced and the cills re-bedded, or a gable-and-chimney together on the streets facing the flat. The bigger Victorian houses around Hindley's old centre and along Wigan Road are softer brick and get a weaker mix and a neater joint.

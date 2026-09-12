@@ -14,3 +14,5 @@ seo_description: Repointing in Buxton — Buxton limestone and gritstone. Brick,
 Buxton is a spa town in limestone and gritstone — Georgian and Victorian villas around the Park, the Crescent and Broad Walk, stone terraces in Fairfield and Burbage — and almost the whole town is conservation area. The limestone is soft and hates cement; the pointing has to be lime with a matched aggregate, and the profile has to match the original.
 
 High, cold and wet; frost damage to joints is the Buxton problem. About an hour from Rochdale via the A6; whole-elevation jobs only, booked as a block.
+
+The typical job is a full elevation on a villa in the Park or on Broad Walk where cement is blowing the limestone, or a terrace in Fairfield, Burbage or Harpur Hill where the gritstone has been cement-pointed and is damp inside. We rake it out by hand, use a lime matched to the stone — the limestone and the gritstone want different aggregates — and finish it to the original profile. Chimneys at Buxton's altitude take a beating and we'll always quote them with the elevation.

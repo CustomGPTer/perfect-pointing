@@ -14,3 +14,5 @@ seo_description: Repointing in Mirfield — stone terraces and cottages. Brick, 
 Mirfield is stone — terraces along Huddersfield Road and around the station, older cottages in Upper Hopton and Battyeford, Victorian villas towards Roberttown — and the joints were lime. Cement has been put on most of it since and the stone is showing the damage: faces flaking, damp upstairs, the pointing itself sitting proud and intact.
 
 Lime repointing by hand, brushed back and slightly recessed, is the fix. Fifty minutes from Rochdale on the M62; we pair Mirfield with Dewsbury and Huddersfield jobs.
+
+A typical Mirfield job is a full front on a Huddersfield Road terrace or a gable-and-chimney together on the stepped streets above the station. The Victorian villas towards Roberttown and Hopton have carved gritstone dressings and a deeper joint, which we finish slightly recessed in lime with a matched aggregate. Mirfield has conservation areas around the old town and Upper Hopton.

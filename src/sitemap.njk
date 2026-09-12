@@ -5,5 +5,5 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for p in collections.all %}{% if p.url and not p.data.noindex and p.url != '/sitemap.xml' and p.url != '/robots.txt' and p.url != '/404.html' and not p.url.startsWith('/admin') %}
-  <url><loc>{{ site.url }}{{ p.url }}</loc><changefreq>{% if p.url == '/' %}weekly{% else %}monthly{% endif %}</changefreq><priority>{% if p.url == '/' %}1.0{% elif p.url.startsWith('/services/') or p.url.startsWith('/repointing-') %}0.8{% else %}0.6{% endif %}</priority></url>{% endif %}{% endfor %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc><changefreq>{% if p.url == '/' %}weekly{% else %}monthly{% endif %}</changefreq><priority>{% if p.url == '/' %}1.0{% elif p.url.startsWith('/services/') or p.url.startsWith('/repointing-') %}0.8{% elif p.url.startsWith('/areas/') %}0.7{% else %}0.6{% endif %}</priority></url>{% endif %}{% endfor %}
 </urlset>

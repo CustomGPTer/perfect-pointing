@@ -14,3 +14,5 @@ seo_description: Repointing in St Helens — Victorian brick terraces. Brick, st
 St Helens is Victorian brick — long terraces around Parr, Sutton, Thatto Heath and Fingerpost built for the glass and coal, bigger Victorian houses in Eccleston, Windle and Rainhill, and inter-war and post-war estates around them. Newton-le-Willows, Earlestown and Prescot to the south are the same brick and the same work. Cement, neatly tooled, with a check for colliery settlement on the older streets.
 
 Eccleston and Rainhill have conservation areas. About fifty-five minutes from Rochdale via the M62; full elevations and whole houses, grouped with Wigan, Warrington and Widnes.
+
+The typical job is a full front on a Parr or Thatto Heath terrace, with spalled bricks replaced and the chimney done from the same tower, or a full elevation on an Eccleston or Rainhill villa where the owner wants the joint matched to the original. Old workings under the older streets can show as stepped cracks; we say if a wall needs stitching before repointing is worth doing. Billinge and Rainford, on the edge of the borough, have some older stone in lime.

@@ -14,3 +14,5 @@ seo_description: Repointing in Leyland — inter-war and post-war semis. Brick, 
 Leyland grew around the motor works and much of it is inter-war and post-war semis — brick, cement, bays and chimneys — with older Victorian terraces around Hough Lane, Towngate and Farington. Straightforward cement repointing on the whole, with a few stone cottages on the Worden Park side that need lime.
 
 Full fronts are the usual job, with spalled bricks replaced and cills re-bedded. Fifty minutes from Rochdale via the M61 and M6, so we group Leyland with Preston and Chorley and take anything over a day or two.
+
+The typical Leyland job is a full front on a 1930s semi — raked out to 20 mm, spalled bricks replaced with reclaimed matches, cills re-bedded, repointed weather struck to match the neighbours — with the chimney done from the same tower. The older Victorian streets around Leyland Cross and Fox Lane are softer brick and get a weaker mix. Leyland Cross has a conservation area.
