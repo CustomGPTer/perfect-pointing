@@ -2,7 +2,7 @@
 title: Indian stone patio, 40 m²
 order: 5
 category: Patio
-image: /images/uploads/clean.jpg
+image: /images/uploads/patio-paving-pointing.jpg
 location: Middleton
 duration: 1 day
 mortar: Slurry jointing compound, charcoal

@@ -2,7 +2,7 @@
 title: Stone-fronted terrace, full gable
 order: 2
 category: Lime
-image: /images/uploads/worn.jpg
+image: /images/uploads/compare-after.jpg
 location: Oldham
 duration: 6 days
 mortar: NHL 3.5 lime, flush finish

@@ -2,7 +2,7 @@
 title: Twin chimney stacks
 order: 3
 category: Chimney
-image: /images/uploads/chimney.jpg
+image: /images/uploads/chimney-repointing.jpg
 location: Heywood
 duration: 2 days
 mortar: 4:1 sand/cement, bucket handle

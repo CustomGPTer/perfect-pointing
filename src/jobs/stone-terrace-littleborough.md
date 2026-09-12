@@ -2,7 +2,7 @@
 title: Stone terrace, rear elevation
 order: 4
 category: Stone
-image: /images/uploads/stone.jpg
+image: /images/uploads/lime-pointing.jpg
 location: Littleborough
 duration: 5 days
 mortar: NHL 3.5 lime, slightly recessed

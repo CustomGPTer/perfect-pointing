@@ -2,7 +2,7 @@
 title: Frost-damaged gable, repairs + repoint
 order: 8
 category: Brick
-image: /images/uploads/before.jpg
+image: /images/uploads/brick-repairs.jpg
 location: Royton
 duration: 4 days
 mortar: 4:1 sand/cement, bucket handle

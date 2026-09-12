@@ -2,7 +2,7 @@
 title: Front elevation, 1930s semi
 order: 1
 category: Brick
-image: /images/uploads/after.jpg
+image: /images/uploads/brick-repointing.jpg
 location: Rochdale
 duration: 4 days
 mortar: 4:1 sand/cement, weather struck
