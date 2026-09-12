@@ -36,7 +36,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("services", (api) => api.getFilteredByGlob("src/services/*.md"));
   eleventyConfig.addCollection("jobs", (api) => api.getFilteredByGlob("src/jobs/*.md"));
   eleventyConfig.addCollection("reviews", (api) => api.getFilteredByGlob("src/reviews/*.md"));
-  eleventyConfig.addCollection("areas", (api) => api.getFilteredByGlob("src/areas/*.md"));
+  const byOrd = (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999);
+  // "areas" = core towns only (nav, footer, home, service chips). Extended towns live in areasExtended / areasAll.
+  eleventyConfig.addCollection("areas", (api) => api.getFilteredByGlob("src/areas/*.md").filter((a) => a.data.tier !== "extended").sort(byOrd));
+  eleventyConfig.addCollection("areasExtended", (api) => api.getFilteredByGlob("src/areas/*.md").filter((a) => a.data.tier === "extended").sort(byOrd));
+  eleventyConfig.addCollection("areasAll", (api) => api.getFilteredByGlob("src/areas/*.md").sort(byOrd));
+  eleventyConfig.addCollection("regions", (api) => api.getFilteredByGlob("src/regions/*.md").sort(byOrd));
   eleventyConfig.addCollection("styles", (api) => api.getFilteredByGlob("src/styles/*.md"));
   eleventyConfig.addCollection("advice", (api) => api.getFilteredByGlob("src/advice/*.md"));
   eleventyConfig.addFilter("jobsIn", (jobs, town) => {
@@ -51,6 +56,28 @@ export default function (eleventyConfig) {
     [...(areas || [])].sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
       .map((a) => ({ name: a.data.town, lat: a.data.lat, lng: a.data.lng, url: a.url, home: a.fileSlug === "rochdale" })));
   eleventyConfig.addFilter("jsonify", (v) => JSON.stringify(v));
+  // Nearest N other area pages by straight-line distance (for the "Nearby" cards on every area page).
+  const milesBetween = (a, b) => {
+    const R = 3958.8, r = Math.PI / 180;
+    const dp = (b.lat - a.lat) * r, dl = (b.lng - a.lng) * r;
+    const x = Math.sin(dp / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dl / 2) ** 2;
+    return R * 2 * Math.asin(Math.sqrt(x));
+  };
+  eleventyConfig.addFilter("nearest", (areas, here, n = 6) =>
+    [...(areas || [])].filter((a) => a.url !== here.url && a.data.lat && a.data.lng)
+      .map((a) => ({ a, d: milesBetween({ lat: +here.lat, lng: +here.lng }, { lat: +a.data.lat, lng: +a.data.lng }) }))
+      .sort((x, y) => x.d - y.d).slice(0, n).map((x) => x.a));
+  // Group area pages by county, A–Z within each county; counties in a fixed order.
+  const countyOrder = ["Greater Manchester", "Lancashire", "West Yorkshire", "North Yorkshire", "South Yorkshire", "Derbyshire", "Cheshire", "Staffordshire", "Merseyside"];
+  eleventyConfig.addFilter("byCounty", (areas) => {
+    const g = new Map();
+    for (const a of areas || []) { const c = a.data.county || "Other"; if (!g.has(c)) g.set(c, []); g.get(c).push(a); }
+    return [...g.entries()].sort((x, y) => (countyOrder.indexOf(x[0]) + 1 || 99) - (countyOrder.indexOf(y[0]) + 1 || 99))
+      .map(([county, list]) => ({ county, list: list.sort((a, b) => String(a.data.town).localeCompare(String(b.data.town))) }));
+  });
+  eleventyConfig.addFilter("inCounties", (areas, counties) => [...(areas || [])].filter((a) => (counties || []).includes(a.data.county)).sort((a, b) => String(a.data.town).localeCompare(String(b.data.town))));
+  eleventyConfig.addFilter("regionFor", (regions, county) => (regions || []).find((r) => (r.data.counties || []).includes(county)));
+  eleventyConfig.addFilter("smallMarkers", (areas) => (areas || []).map((a) => ({ name: a.data.town, lat: a.data.lat, lng: a.data.lng, url: a.url, small: true })));
   eleventyConfig.addFilter("concat", (a, b) => [...(a || []), ...(b || [])]);
 
   // Add width/height to every local <img> that lacks them (stops layout shift).

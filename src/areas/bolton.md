@@ -1,9 +1,13 @@
 ---
 town: Bolton
 order: 12
+tier: core
+county: Greater Manchester
 lat: 53.5780
 lng: -2.4290
-distance: 13 miles
+miles: 13
+drive: 30
+distance: 13 miles · about 30 min
 housing: stone terraces, Victorian brick, 1930s semis, Bromley Cross and Egerton stone
 seo_description: Repointing in Bolton — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

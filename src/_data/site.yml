@@ -13,7 +13,9 @@ postcode: OL12
 lat: 53.6097
 lng: -2.1561
 radius_miles: 15
-areas_summary: Based in Rochdale, covering Greater Manchester and East Lancashire
+free_travel_miles: 15
+travel_radius_miles: 50
+areas_summary: Based in Rochdale, covering Greater Manchester, Lancashire, Yorkshire and Cheshire — up to 50 miles
 hours:
   - days: Mon–Fri
     times: 7.30am – 6pm

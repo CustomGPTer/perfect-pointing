@@ -1,9 +1,13 @@
 ---
 town: Royton
 order: 9
+tier: core
+county: Greater Manchester
 lat: 53.5650
 lng: -2.1210
-distance: 5 miles
+miles: 5
+drive: 10
+distance: 5 miles · about 10 min
 housing: brick terraces, 1930s and post-war semis
 seo_description: Repointing in Royton — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

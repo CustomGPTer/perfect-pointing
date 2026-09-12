@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 {% import "icons.njk" as ic %}
-{% set crumb %}<a href="/areas/">Areas</a> / {{ town }}{% endset %}
+{% set region = collections.regions | regionFor(county) %}{% set crumb %}<a href="/areas/">Areas</a> / {% if region %}<a href="{{ region.url }}">{{ region.data.name }}</a> / {% endif %}{{ town }}{% endset %}
 {% set image = pages.areas.image %}{% set heading = "Repointing in " + town %}{% if distance == "Home base" %}{% set intro = "Brick, stone and lime pointing, chimneys, garden walls and patios in " + town + " — our home town since 2000. Free written quotes, fixed prices, 10-year guarantee." %}{% else %}{% set intro = "Brick, stone and lime pointing, chimneys, garden walls and patios in " + town + ", " + distance + " from our base in Rochdale. Established 2000. Free written quotes, fixed prices, 10-year guarantee." %}{% endif %}{% set extra = "" %}
 {% include "phero.njk" %}
 
@@ -20,10 +20,11 @@ layout: base.njk
       <div class="actions"><a class="btn btn-brick" href="/contact/">Get a free quote in {{ town }}</a><a class="btn btn-ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a></div>
     </div>
     <div>
-      {% set map_id = "map-" + page.fileSlug %}{% set map_zoom = 12 %}
+      {% set map_id = "map-" + page.fileSlug %}{% set map_zoom = 12 %}{% set map_center = { lat: lat, lng: lng } %}
       {% set map_markers = [{ name: town, lat: lat, lng: lng, url: page.url, home: (page.fileSlug == 'rochdale') }] %}
       {% include "map.njk" %}
       <p class="note" style="margin-top:10px">{{ town }} — {{ distance }}{% if distance != 'Home base' %} from our base in Rochdale{% endif %}.</p>
+      {% if tier == 'extended' and miles > site.free_travel_miles %}<p class="note travel">{{ pages.areas.travel_note }}</p>{% endif %}
     </div>
   </div>
 </section>
@@ -60,7 +61,9 @@ layout: base.njk
   <div class="wrap">
     <p class="eyebrow">Nearby</p>
     <h2>Other areas we cover</h2>
-    <div class="acards">{% for a in collections.areas | byOrder %}{% if a.url != page.url %}{% include "area-card.njk" %}{% endif %}{% endfor %}</div>
+    <div class="acards">{% for a in collections.areasAll | nearest({ url: page.url, lat: lat, lng: lng }, 8) %}{% include "area-card.njk" %}{% endfor %}</div>
+    {% set region = collections.regions | regionFor(county) %}
+    <p class="note" style="margin-top:18px"><a href="/areas/">All areas we cover</a>{% if region %} · <a href="{{ region.url }}">More in {{ region.data.name }}</a>{% endif %}</p>
   </div>
 </section>
 

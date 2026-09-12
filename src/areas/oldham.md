@@ -1,9 +1,13 @@
 ---
 town: Oldham
 order: 2
+tier: core
+county: Greater Manchester
 lat: 53.5409
 lng: -2.1114
-distance: 6 miles
+miles: 6
+drive: 15
+distance: 6 miles · about 15 min
 housing: stone mill-town terraces, red-brick terraces, 1930s and post-war semis
 seo_description: Repointing in Oldham — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

@@ -1,9 +1,13 @@
 ---
 town: Heywood
 order: 4
+tier: core
+county: Greater Manchester
 lat: 53.5900
 lng: -2.2190
-distance: 4 miles
+miles: 4
+drive: 10
+distance: 4 miles · about 10 min
 housing: brick terraces, 1930s council semis, newer estates
 seo_description: Repointing in Heywood — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

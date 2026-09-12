@@ -1,0 +1,57 @@
+---
+layout: base.njk
+---
+{% import "icons.njk" as ic %}
+{% set crumb %}<a href="/areas/">Areas</a> / {{ name }}{% endset %}
+{% set image = pages.areas.image %}{% set heading = "Repointing in " + name %}{% set intro = "Brick, stone and lime pointing, chimneys, garden walls and patios across " + name + " from our base in Rochdale. Established 2000. Free written quotes, fixed prices, 10-year guarantee." %}{% set extra = "" %}
+{% include "phero.njk" %}
+
+{% set towns = collections.areasAll | inCounties(counties) %}
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">{{ name }} · {% set nt = towns.length + (outer_towns | length) %}{{ nt }} town{% if nt != 1 %}s{% endif %}</p>
+      <h2>Pointing and repointing across {{ name }}</h2>
+      <div class="prose" style="margin-top:14px">{{ content | safe }}</div>
+      <ul class="checks">
+        <li>{{ ic.tick() }}<span><strong>Scott quotes every job in person</strong> — fixed written price within 48 hours.</span></li>
+        <li>{{ ic.tick() }}<span><strong>{{ site.guarantee }}</strong> on all work in {{ name }}.</span></li>
+        <li>{{ ic.tick() }}<span><strong>{{ site.insurance }}</strong>, certificate shown with the quote.</span></li>
+      </ul>
+      <div class="actions"><a class="btn btn-brick" href="/contact/">Get a free quote</a><a class="btn btn-ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a></div>
+    </div>
+    <div>
+      {% set map_id = "map-" + page.fileSlug %}{% set map_zoom = zoom or 9 %}{% set map_center = { lat: lat, lng: lng } %}
+      {% set map_markers = towns | smallMarkers %}
+      {% include "map.njk" %}
+      <p class="note" style="margin-top:10px">Dots are the {{ name }} towns with their own page. Dashed circle is our 50-mile limit from Rochdale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">Towns with their own page</p>
+    <h2>{{ name }} — where we work</h2>
+    <ul class="town-list" style="margin-top:20px">{% for a in towns %}<li><a href="{{ a.url }}">{{ a.data.town }}</a> <small>{{ a.data.miles }} mi</small></li>{% endfor %}</ul>
+    {% if outer_towns.length %}
+    <h3 style="margin-top:32px">Also covered in {{ name }}</h3>
+    <p class="sub" style="margin-top:8px;max-width:70ch">{{ outer_towns | join(", ") }} — and the villages between. Ring Scott or <a href="/contact/">send photos</a> for a quote.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Services</p>
+    <h2>What we do across {{ name }}</h2>
+    <div class="cards">
+      {% for s in collections.services | byOrder %}
+      <a class="card" href="{{ s.url }}"><img class="ph" src="{{ s.data.card_image or s.data.image }}" alt="{{ s.data.title }} in {{ name }}" loading="lazy"><div class="body"><h3>{{ s.data.title }}</h3><p>{{ s.data.card_text }}</p><span class="link">More about {{ s.data.title | lower }} →</span></div></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set eyebrow = "" %}{% set heading = "Get a free repointing quote in " + name %}{% set text = "Ring Scott, or send two or three photos of the wall for a rough figure before he visits." %}{% set button = "Send photos" %}
+{% include "cta.njk" %}

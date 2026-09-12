@@ -1,9 +1,13 @@
 ---
 town: Littleborough
 order: 6
+tier: core
+county: Greater Manchester
 lat: 53.6440
 lng: -2.0960
-distance: 3 miles
+miles: 3
+drive: 10
+distance: 3 miles · about 10 min
 housing: gritstone cottages and terraces, weavers' cottages, canal-side stone
 seo_description: Repointing in Littleborough — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

@@ -1,9 +1,13 @@
 ---
 town: Bury
 order: 3
+tier: core
+county: Greater Manchester
 lat: 53.5933
 lng: -2.2966
-distance: 8 miles
+miles: 8
+drive: 15
+distance: 8 miles · about 15 min
 housing: Victorian brick terraces, 1930s semis, stone cottages around Tottington and Walmersley
 seo_description: Repointing in Bury — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

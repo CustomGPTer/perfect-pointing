@@ -1,9 +1,13 @@
 ---
 town: Middleton
 order: 5
+tier: core
+county: Greater Manchester
 lat: 53.5550
 lng: -2.1870
-distance: 5 miles
+miles: 5
+drive: 15
+distance: 5 miles · about 15 min
 housing: 1930s and post-war semis, Victorian terraces around the old town, Alkrington bay-fronts
 seo_description: Repointing in Middleton — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

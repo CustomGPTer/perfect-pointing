@@ -11,11 +11,27 @@ eleventyComputed:
 {% include "phero.njk" %}
 <section>
   <div class="wrap">
-    {% set map_markers = collections.areas | areaMarkers %}
-    {% set map_id = "areamap" %}{% set map_zoom = 10 %}
+    {% set map_markers = (collections.areas | areaMarkers) | concat(collections.areasExtended | smallMarkers) %}
+    {% set map_id = "areamap" %}{% set map_zoom = 9 %}
     {% include "map.njk" %}
     <p class="note" style="margin-top:10px">{{ p.map_note }}</p>
     <div class="acards" style="margin-top:40px">{% for a in collections.areas | byOrder %}{% include "area-card.njk" %}{% endfor %}</div>
+  </div>
+</section>
+
+<section class="grey">
+  <div class="wrap">
+    <p class="eyebrow">{{ p.further_eyebrow }}</p>
+    <h2>{{ p.further_heading }}</h2>
+    <p class="sub" style="margin-top:12px;max-width:66ch">{{ p.further_text }}</p>
+    <div class="regions">{% for r in collections.regions | byOrder %}<a class="acard" href="{{ r.url }}"><strong>{{ r.data.name }}</strong>{% set nt = (collections.areasAll | inCounties(r.data.counties)).length + (r.data.outer_towns | length) %}<span>{{ nt }} town{% if nt != 1 %}s{% endif %}</span><em>{{ (r.data.outer_towns | join(", ")) | truncate(70) }}</em></a>{% endfor %}</div>
+    <div class="further faq" style="margin-top:28px">
+      {% for g in collections.areasExtended | byCounty %}
+      <details><summary>{{ g.county }} <span class="count">{{ g.list.length }} town{% if g.list.length != 1 %}s{% endif %}</span></summary>
+        <ul class="town-list">{% for a in g.list %}<li><a href="{{ a.url }}">{{ a.data.town }}</a> <small>{{ a.data.miles }} mi</small></li>{% endfor %}</ul>
+      </details>
+      {% endfor %}
+    </div>
   </div>
 </section>
 {% set eyebrow = "" %}{% set heading = p.cta_heading %}{% set text = p.cta_text %}{% set button = "Request a quote" %}

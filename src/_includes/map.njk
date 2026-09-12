@@ -1,5 +1,5 @@
 {# Leaflet map of areas — free OpenStreetMap tiles, no API key #}
-<div class="map" id="{{ map_id or 'areamap' }}" data-lat="{{ site.lat }}" data-lng="{{ site.lng }}" data-radius="{{ site.radius_miles }}" data-zoom="{{ map_zoom or 10 }}"
+<div class="map" id="{{ map_id or 'areamap' }}" data-lat="{{ site.lat }}" data-lng="{{ site.lng }}" data-radius="{{ site.radius_miles }}" data-outer="{{ site.travel_radius_miles }}" data-zoom="{{ map_zoom or 10 }}"{% if map_center %} data-clat="{{ map_center.lat }}" data-clng="{{ map_center.lng }}"{% endif %}
   data-markers='{{ map_markers | jsonify }}' aria-label="Map of areas covered by {{ site.business_name }}"></div>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
@@ -8,15 +8,17 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.map').forEach(function(el){
     if(!window.L) return;
     var lat=+el.dataset.lat,lng=+el.dataset.lng,r=+el.dataset.radius*1609.34;
-    var m=L.map(el,{scrollWheelZoom:false,attributionControl:true}).setView([lat,lng],+el.dataset.zoom);
+    var m=L.map(el,{scrollWheelZoom:false,attributionControl:true}).setView([+(el.dataset.clat||lat),+(el.dataset.clng||lng)],+el.dataset.zoom);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(m);
     L.circle([lat,lng],{radius:r,color:'#B0402A',weight:1.5,fillColor:'#B0402A',fillOpacity:.06}).addTo(m);
+    if(+el.dataset.outer) L.circle([lat,lng],{radius:+el.dataset.outer*1609.34,color:'#B0402A',weight:1,dashArray:'6 6',fill:false}).addTo(m);
     var icon=L.divIcon({className:'pin',html:'<span></span>',iconSize:[18,18],iconAnchor:[9,9]});
     var home=L.divIcon({className:'pin home',html:'<span></span>',iconSize:[26,26],iconAnchor:[13,13]});
+    var small=L.divIcon({className:'pin small',html:'<span></span>',iconSize:[10,10],iconAnchor:[5,5]});
     (JSON.parse(el.dataset.markers||'[]')).forEach(function(p){
-      var mk=L.marker([p.lat,p.lng],{icon:p.home?home:icon}).addTo(m);
+      var mk=L.marker([p.lat,p.lng],{icon:p.home?home:(p.small?small:icon)}).addTo(m);
       mk.bindPopup('<strong>'+p.name+'</strong><br><a href="'+p.url+'">Repointing in '+p.name+' →</a>');
-      mk.bindTooltip(p.name,{permanent:!!p.home,direction:'right',offset:[10,0],className:'lbl'});
+      mk.bindTooltip(p.name,{permanent:!!p.home,direction:'right',offset:[p.small?6:10,0],className:'lbl'});
     });
   });
 });

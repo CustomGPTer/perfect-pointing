@@ -1,9 +1,13 @@
 ---
 town: Milnrow
 order: 7
+tier: core
+county: Greater Manchester
 lat: 53.6100
 lng: -2.1110
-distance: 2 miles
+miles: 2
+drive: 10
+distance: 2 miles · about 10 min
 housing: stone terraces, brick terraces, 1960s–80s estates, newer builds
 seo_description: Repointing in Milnrow — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

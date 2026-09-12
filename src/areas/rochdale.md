@@ -1,8 +1,12 @@
 ---
 town: Rochdale
 order: 1
+tier: core
+county: Greater Manchester
 lat: 53.6097
 lng: -2.1561
+miles: 0
+drive: 0
 distance: Home base
 housing: stone terraces, Victorian and Edwardian brick, 1930s semis, post-war estates
 seo_description: Repointing in Rochdale — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.

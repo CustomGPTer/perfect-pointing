@@ -342,3 +342,17 @@ a.joint:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .reviews-empty p{margin:0 0 14px}
 .reviews-empty .btn{margin-top:6px}
 .review .who small.gtag{display:block;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.02em}
+
+/* Further-afield areas (extended tier + county hubs) */
+.regions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+@media (max-width:960px){.regions{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.regions{grid-template-columns:1fr}}
+.further summary .count{font-weight:400;color:var(--ink2);font-size:14px;margin-left:auto;padding-right:14px}
+.town-list{list-style:none;padding:0;margin:0 0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px 16px}
+@media (max-width:960px){.town-list{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.town-list{grid-template-columns:repeat(2,1fr)}}
+.town-list a{font-weight:600;text-decoration:none}
+.town-list a:hover{text-decoration:underline}
+.town-list small{color:var(--ink2);font-size:12px}
+.pin.small span{width:10px;height:10px;border-width:2px;opacity:.85}
+.note.travel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:10px}

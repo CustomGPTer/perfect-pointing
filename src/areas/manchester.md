@@ -1,9 +1,13 @@
 ---
 town: North Manchester
 order: 13
+tier: core
+county: Greater Manchester
 lat: 53.5150
 lng: -2.2200
-distance: 10 miles
+miles: 10
+drive: 20
+distance: 10 miles · about 20 min
 housing: Victorian terraces, Edwardian semis, inter-war council semis
 seo_description: Repointing in North Manchester — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

@@ -34,7 +34,7 @@
   "name":"{{ site.business_name }}","url":"{{ site.url }}/","telephone":"+44{{ site.phone | replace(' ','') | replace('0','',1) }}",
   "image":"{{ site.url }}{{ home.hero_image }}","logo":"{{ site.url }}{{ home.hero_image }}","description":"{{ site.footer_blurb }}",
   "address":{"@type":"PostalAddress","addressLocality":"{{ site.town }}","addressRegion":"{{ site.region }}"{% if site.postcode %},"postalCode":"{{ site.postcode }}"{% endif %},"addressCountry":"GB"},
-  "areaServed":[{% for a in collections.areas | byOrder %}{"@type":"City","name":"{{ a.data.town }}","url":"{{ site.url }}{{ a.url }}"}{% if not loop.last %},{% endif %}{% endfor %}],
+  "areaServed":[{% for a in collections.areasAll | byOrder %}{"@type":"City","name":"{{ a.data.town }}","url":"{{ site.url }}{{ a.url }}"},{% endfor %}{% for r in collections.regions | byOrder %}{"@type":"AdministrativeArea","name":"{{ r.data.name }}","url":"{{ site.url }}{{ r.url }}"}{% if not loop.last %},{% endif %}{% endfor %}],
   "founder":{"@type":"Person","name":"{{ site.owner }}"},
   "foundingDate":"{{ site.established }}",
   "geo":{"@type":"GeoCoordinates","latitude":{{ site.lat }},"longitude":{{ site.lng }}},
@@ -93,7 +93,7 @@
       </div>
       <div><h4>Pages</h4><ul>{% for n in nav %}<li><a href="{{ n[0] }}">{{ n[1] }}</a></li>{% endfor %}</ul></div>
       <div><h4>Services</h4><ul>{% for s in collections.services | byOrder %}<li><a href="{{ s.url }}">{{ s.data.title }}</a></li>{% endfor %}<li><a href="/pointing-styles/">Pointing styles</a></li><li><a href="/advice/">Advice</a></li></ul></div>
-      <div><h4>Areas we cover</h4><ul class="two-col">{% for a in collections.areas | byOrder %}<li><a href="{{ a.url }}">Repointing {{ a.data.town }}</a></li>{% endfor %}</ul></div>
+      <div><h4>Areas we cover</h4><ul class="two-col">{% for a in collections.areas | byOrder %}<li><a href="{{ a.url }}">Repointing {{ a.data.town }}</a></li>{% endfor %}<li><a href="/areas/"><strong>All areas — up to {{ site.travel_radius_miles }} miles ›</strong></a></li></ul></div>
     </div>
     <div class="bottom">
       <span>© {{ '' | year }} {{ site.business_name }} · {{ site.owner }}</span>

@@ -59,7 +59,9 @@ collections:
           - { name: region, label: Region, widget: string }
           - { name: lat, label: Base latitude (for the map), widget: number, value_type: float, step: 0.0001 }
           - { name: lng, label: Base longitude (for the map), widget: number, value_type: float, step: 0.0001 }
-          - { name: radius_miles, label: Working radius in miles (blue circle on the map), widget: number, value_type: int }
+          - { name: radius_miles, label: No-travel-charge radius in miles (solid circle on the map), widget: number, value_type: int }
+          - { name: free_travel_miles, label: Miles from Rochdale with no travel charge, widget: number, value_type: int }
+          - { name: travel_radius_miles, label: Furthest we travel, in miles (dashed circle on the map), widget: number, value_type: int }
           - { name: topbar_message, label: Top bar message, widget: string, hint: "The strip above the menu on desktop" }
           - name: hours
             label: Opening hours
@@ -193,6 +195,10 @@ collections:
               - { name: heading, label: Heading, widget: string }
               - { name: intro, label: Intro text, widget: text }
               - { name: map_note, label: Note under the map, widget: string }
+              - { name: further_eyebrow, label: Further afield — small heading, widget: string }
+              - { name: further_heading, label: Further afield — heading, widget: string }
+              - { name: further_text, label: Further afield — text, widget: text }
+              - { name: travel_note, label: Travel note shown on out-of-area town pages, widget: text }
               - { name: cta_heading, label: Bottom banner — heading, widget: string }
               - { name: cta_text, label: Bottom banner — text, widget: text }
               - { name: seo_title, label: Browser / Google title, widget: string }
@@ -388,18 +394,47 @@ collections:
     delete: true
     slug: "{{slug}}"
     identifier_field: town
-    summary: "{{order}}. {{town}} ({{distance}})"
-    sortable_fields: [order, town]
+    summary: "{{order}}. {{town}} — {{tier}} ({{distance}})"
+    sortable_fields: [order, town, county]
+    view_groups: [{ label: County, field: county }, { label: Tier, field: tier }]
     editor: { preview: false }
     fields:
       - { name: town, label: Town, widget: string }
       - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 20 }
-      - { name: distance, label: Distance from base, widget: string, hint: "e.g. 6 miles — or Home base" }
+      - { name: tier, label: Tier, widget: select, options: [{ label: "Core — shown in the menu, footer, home page and service pages", value: core }, { label: "Extended — own page, listed under Further afield on the Areas page", value: extended }], default: extended }
+      - { name: county, label: County, widget: select, options: [Greater Manchester, Lancashire, West Yorkshire, North Yorkshire, South Yorkshire, Derbyshire, Cheshire, Staffordshire, Merseyside], default: Greater Manchester }
+      - { name: miles, label: Road miles from Rochdale, widget: number, value_type: int, hint: "Whole number, e.g. 18" }
+      - { name: drive, label: Drive time in minutes, widget: number, value_type: int, hint: "e.g. 35" }
+      - { name: distance, label: Distance line shown on the page, widget: string, hint: "e.g. 18 miles · about 35 min — or Home base" }
       - { name: lat, label: Latitude, widget: number, value_type: float, step: 0.0001, hint: "Right-click the town on Google Maps → the first number" }
       - { name: lng, label: Longitude, widget: number, value_type: float, step: 0.0001, hint: "The second number" }
       - { name: housing, label: Typical housing (one line), widget: string, hint: "e.g. stone terraces, 1930s semis" }
       - { name: seo_description, label: Google description, widget: text }
       - { name: body, label: About working in this town, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text], hint: "Two or three short paragraphs. Mention local streets, housing types and what you tend to do there." }
+
+  # ------------------------------------------------------------------ County hubs (further afield)
+  - name: regions
+    label: Areas — county pages
+    label_singular: County page
+    icon: map
+    folder: src/regions
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{order}}. {{name}}"
+    sortable_fields: [order, name]
+    editor: { preview: false }
+    fields:
+      - { name: name, label: Name shown on the page, widget: string, hint: "e.g. Lancashire" }
+      - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 10 }
+      - { name: counties, label: Counties this page covers, widget: select, multiple: true, options: [Greater Manchester, Lancashire, West Yorkshire, North Yorkshire, South Yorkshire, Derbyshire, Cheshire, Staffordshire, Merseyside], hint: "Towns with those counties are listed automatically" }
+      - { name: lat, label: Map centre latitude, widget: number, value_type: float, step: 0.01 }
+      - { name: lng, label: Map centre longitude, widget: number, value_type: float, step: 0.01 }
+      - { name: zoom, label: Map zoom, widget: number, value_type: int, default: 9 }
+      - { name: outer_towns, label: Towns covered without their own page, widget: list, hint: "One per line — these are named in the text on the page" }
+      - { name: seo_description, label: Google description, widget: text }
+      - { name: body, label: About working in this county, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [], modes: [rich_text] }
 
   # ------------------------------------------------------------------ Pointing styles
   - name: styles

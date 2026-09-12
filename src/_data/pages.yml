@@ -21,12 +21,16 @@ work:
   cta_heading: Want yours to look like this?
   cta_text: Free survey, fixed written price, ten-year guarantee.
 areas:
-  seo_title: Areas We Cover — Greater Manchester | Perfect Pointing
-  seo_description: Perfect Pointing covers Rochdale, Oldham, Bury, Heywood, Middleton, Littleborough, Milnrow, Shaw, Royton, Whitworth, Ramsbottom, Bolton and north Manchester. Established 2000.
+  seo_title: Areas We Cover — Greater Manchester, Lancashire, Yorkshire & Cheshire | Perfect Pointing
+  seo_description: Perfect Pointing covers Rochdale, Oldham, Bury, Bolton and Manchester and every town within 50 miles — Lancashire, West Yorkshire, Cheshire, Derbyshire and Merseyside. Established 2000.
   heading: Areas we cover
-  intro: Based in Rochdale and working within about 15 miles. The towns below are where most of our work is — if you're between them or a little further out, ask.
+  intro: Based in Rochdale and working up to 50 miles out. The towns below are where most of our work is; further afield is listed by county underneath, and every town has its own page.
   image: /images/uploads/street-repointed.jpg
-  map_note: Blue circle is our usual working radius from Rochdale. Markers are the towns with their own page.
+  map_note: Solid circle is 15 miles from Rochdale — no travel charge inside it. Dashed circle is our 50-mile limit. Large markers are our core towns; small dots are the rest, all with their own page.
+  further_eyebrow: Further afield
+  further_heading: Every town we cover, by county
+  further_text: We travel up to 50 miles from Rochdale. There's no travel charge within 15 miles; beyond that, on the bigger jobs the distance tends to mean, travel is priced into the fixed written quote as one line — no surprises.
+  travel_note: "No travel charge within 15 miles of Rochdale. Beyond that, travel is priced into your fixed written quote as a single line, and bigger jobs are always worth the drive."
   cta_heading: Not on the list?
   cta_text: Ring Scott — most jobs over two days are worth the drive.
 styles:
@@ -71,7 +75,7 @@ about:
       value: All rubble and old mortar removed
   areas_eyebrow: Areas covered
   areas_heading: Based in Rochdale, working across Greater Manchester and East Lancashire
-  areas_text: Rochdale, Oldham, Bury, Heywood, Middleton and the towns around them, out to Bolton and north Manchester. If you're a bit further, ask.
+  areas_text: Rochdale, Oldham, Bury, Heywood, Middleton and the towns around them, out to Bolton and north Manchester — and up to 50 miles beyond that, across Lancashire, Yorkshire and Cheshire. Every town has its own page.
   areas_image: /images/uploads/street-repointed.jpg
   stats:
     - number: "2000"

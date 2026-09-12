@@ -1,9 +1,13 @@
 ---
 town: Shaw
 order: 8
+tier: core
+county: Greater Manchester
 lat: 53.5780
 lng: -2.0940
-distance: 5 miles
+miles: 5
+drive: 10
+distance: 5 miles · about 10 min
 housing: stone and brick terraces, mill housing, 1930s semis, Crompton stone
 seo_description: Repointing in Shaw — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---

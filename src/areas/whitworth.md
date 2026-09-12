@@ -1,9 +1,13 @@
 ---
 town: Whitworth
 order: 10
+tier: core
+county: Lancashire
 lat: 53.6550
 lng: -2.1760
-distance: 3 miles
+miles: 3
+drive: 10
+distance: 3 miles · about 10 min
 housing: gritstone terraces and cottages, some brick
 seo_description: Repointing in Whitworth — brick, stone and lime pointing, chimneys and patios by Perfect Pointing, Rochdale, est. 2000. Free quotes, fixed prices, 10-year guarantee.
 ---
