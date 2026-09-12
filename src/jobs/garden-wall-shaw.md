@@ -2,7 +2,7 @@
 title: Garden wall, lime repoint
 order: 7
 category: Lime
-image: /images/uploads/stone-pointing.jpg
+image: /images/uploads/garden-wall-lime-repoint.jpg
 location: Shaw
 duration: 2 days
 mortar: Lime putty mix, flush
