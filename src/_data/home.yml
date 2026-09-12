@@ -24,11 +24,11 @@ trust:
 services_eyebrow: What we do
 services_heading: Every kind of pointing, on every kind of house
 services_text: If it has mortar joints, we point it. Tap a service for what's involved and roughly what it costs.
-compare_before: /images/uploads/before.jpg
-compare_after: /images/uploads/after.jpg
-compare_before_label: Weathered, eroded joints
-compare_after_label: Fresh, struck joints
-compare_caption: Drag the slider — worn joints on the right, freshly pointed on the left.
+compare_before: /images/uploads/compare-before.jpg
+compare_after: /images/uploads/compare-after.jpg
+compare_before_label: Before
+compare_after_label: After
+compare_caption: Drag the slider — the same stone house before and after repointing by Scott and the team.
 why_eyebrow: Why pointing fails
 why_heading: Most bad repointing was never bonded to anything
 why_text: Smear new mortar over old and it looks fine for a year. Then it falls off in sheets because it only ever gripped the surface. Rain gets behind it and the wall is worse than before you started.
