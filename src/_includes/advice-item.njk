@@ -4,6 +4,7 @@ layout: base.njk
 {% set crumb %}<a href="/advice/">Advice</a>{% endset %}
 {% set image = image or pages.advice.image %}{% set heading = title %}{% set intro = summary %}{% set extra = "" %}
 {% include "phero.njk" %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"{{ title | replace('"','\\"') }}","description":"{{ seo_description | replace('"','\\"') }}","image":"{{ site.url }}{{ image }}","url":"{{ site.url }}{{ page.url }}","author":{"@type":"Person","name":"{{ site.owner }}"},"publisher":{"@id":"{{ site.url }}/#business"},"inLanguage":"en-GB","mainEntityOfPage":"{{ site.url }}{{ page.url }}"}</script>
 <section>
   <div class="wrap">
     <article class="prose article">{{ content | safe }}</article>
