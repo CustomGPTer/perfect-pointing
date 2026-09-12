@@ -328,7 +328,7 @@ collections:
       - { label: Stone, field: category, pattern: Stone }
       - { label: Patio, field: category, pattern: Patio }
     fields:
-      - { name: title, label: Job title, widget: string, hint: "e.g. Front elevation, 1930s semi" }
+      - { name: title, label: Job title, widget: string, hint: "e.g. Rear elevation, 1930s semi" }
       - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 1 }
       - { name: category, label: Type, widget: select, options: [Brick, Lime, Chimney, Stone, Patio, Repairs] }
       - { name: image, label: Photo, widget: image }
