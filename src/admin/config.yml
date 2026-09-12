@@ -354,7 +354,8 @@ collections:
       - { name: job, label: What was done and where, widget: string, hint: "e.g. Chimney stack, Worsley" }
       - { name: rating, label: Stars, widget: number, value_type: int, min: 1, max: 5, default: 5 }
       - { name: order, label: Order (1 = first), widget: number, value_type: int, default: 1 }
-      - { name: featured, label: Show on home page (first three ticked are shown), widget: boolean, default: false }
+      - { name: placeholder, label: Placeholder (sample text — untick when this is a real review), widget: boolean, default: false, required: false }
+              - { name: featured, label: Show on home page (first three ticked are shown), widget: boolean, default: false }
       - { name: body, label: The review, widget: text }
 
   # ------------------------------------------------------------------ FAQs

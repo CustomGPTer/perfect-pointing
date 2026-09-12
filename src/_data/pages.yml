@@ -25,7 +25,7 @@ areas:
   seo_description: Perfect Pointing covers Rochdale, Oldham, Bury, Heywood, Middleton, Littleborough, Milnrow, Shaw, Royton, Whitworth, Ramsbottom, Bolton and north Manchester. Established 2000.
   heading: Areas we cover
   intro: Based in Rochdale and working within about 15 miles. The towns below are where most of our work is — if you're between them or a little further out, ask.
-  image: /images/uploads/street.jpg
+  image: /images/uploads/street-repointed.jpg
   map_note: Blue circle is our usual working radius from Rochdale. Markers are the towns with their own page.
   cta_heading: Not on the list?
   cta_text: Ring Scott — most jobs over two days are worth the drive.
@@ -71,7 +71,7 @@ about:
   areas_eyebrow: Areas covered
   areas_heading: Based in Rochdale, working across Greater Manchester and East Lancashire
   areas_text: Rochdale, Oldham, Bury, Heywood, Middleton and the towns around them, out to Bolton and north Manchester. If you're a bit further, ask.
-  areas_image: /images/uploads/street.jpg
+  areas_image: /images/uploads/street-repointed.jpg
   stats:
     - number: "2000"
       label: established

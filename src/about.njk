@@ -39,7 +39,7 @@ eleventyComputed:
         <div class="areas">{% for a in collections.areas | byOrder %}<a href="{{ a.url }}" style="text-decoration:none"><span>{{ a.data.town }}</span></a>{% endfor %}</div>
         <div class="actions"><a class="btn btn-ghost" href="/areas/">Map of areas we cover</a></div>
       </div>
-      <div class="photo wide"><img src="{{ p.areas_image }}" alt="Terraced housing in the Rochdale area" loading="lazy"></div>
+      <div class="photo wide"><img src="{{ p.areas_image }}" alt="Freshly repointed red-brick terrace with bay windows" loading="lazy"></div>
     </div>
     {% if p.stats %}<div class="stat-row">{% for s in p.stats %}<div class="stat"><strong>{{ s.number }}</strong><span>{{ s.label }}</span></div>{% endfor %}</div>{% endif %}
   </div>
