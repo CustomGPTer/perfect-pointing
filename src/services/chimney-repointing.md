@@ -3,8 +3,8 @@ title: Chimney repointing
 order: 3
 eyebrow: Roof level
 card_text: Stacks repointed, flaunching renewed and lead checked — from a tower with edge protection, not off a ladder.
-image: /images/uploads/chimney.jpg
-card_image: /images/uploads/chimney.jpg
+image: /images/uploads/chimney-repointing.jpg
+card_image: /images/uploads/chimney-repointing.jpg
 suits: Any stack, any roof pitch
 time: 1–2 days per stack
 price: From £550 per stack incl. access

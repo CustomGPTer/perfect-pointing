@@ -3,8 +3,8 @@ title: Brick replacement & repairs
 order: 6
 eyebrow: Repairs
 card_text: Spalled or frost-damaged bricks cut out and replaced with matches, crack stitching, air bricks and weep vents.
-image: /images/uploads/before.jpg
-card_image: /images/uploads/t_repair.jpg
+image: /images/uploads/brick-repairs.jpg
+card_image: /images/uploads/brick-repairs.jpg
 suits: Any brick wall
 time: Half a day upwards
 price: From £28 per brick · min £180

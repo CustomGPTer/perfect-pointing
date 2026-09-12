@@ -3,8 +3,8 @@ title: Brick repointing
 order: 1
 eyebrow: Most popular
 card_text: Failed or cracked joints raked out to depth and repointed in a colour-matched sand and cement mix. Whole elevations or single walls.
-image: /images/uploads/after.jpg
-card_image: /images/uploads/t_brick.jpg
+image: /images/uploads/brick-repointing.jpg
+card_image: /images/uploads/brick-repointing.jpg
 suits: Post-1920s cavity-wall brick
 time: 3–5 days for a full elevation
 price: From £45 per m² · gable end from £1,400

@@ -3,8 +3,8 @@ title: Patio & paving pointing
 order: 5
 eyebrow: Ground level
 card_text: Weeded-out flag joints dug out and re-pointed in a jointing compound or mortar that survives wet winters.
-image: /images/uploads/clean.jpg
-card_image: /images/uploads/clean.jpg
+image: /images/uploads/patio-paving-pointing.jpg
+card_image: /images/uploads/patio-paving-pointing.jpg
 suits: Any paved area with joints 5 mm+
 time: 1 day for up to 50 m²
 price: From £22 per m²

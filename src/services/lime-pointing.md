@@ -3,8 +3,8 @@ title: Lime pointing
 order: 2
 eyebrow: Period properties
 card_text: The right mortar for pre-1920 homes. Lime breathes and moves with the wall — cement on old brick blows the faces off.
-image: /images/uploads/worn.jpg
-card_image: /images/uploads/t_lime.jpg
+image: /images/uploads/lime-pointing.jpg
+card_image: /images/uploads/lime-pointing.jpg
 suits: Pre-1920 solid-wall brick and stone
 time: 5–8 days for a full elevation
 price: From £65 per m²
